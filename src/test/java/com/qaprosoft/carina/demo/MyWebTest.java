@@ -25,7 +25,7 @@ public class MyWebTest implements IAbstractTest {
         homePage.open();
         homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.SIGN_UP);
         SignUpPage signUpPage = new SignUpPage(getDriver());
-        signUpPage.writeToNicknameTextBox("UserT777");
+        signUpPage.writeToNicknameTextBox("UserT6777");
         Properties property = new Properties();
         String email = "";
         String password = "";
