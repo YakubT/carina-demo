@@ -2,25 +2,25 @@ package com.qaprosoft.carina.demo.gui.components.enums;
 
 public enum HeaderLink {
 
-    HOME("HOME"),
+    HOME("Home"),
 
-    NEWS("NEWS"),
+    NEWS("News"),
 
-    REVIEWS("REVIEWS"),
+    REVIEWS("Reviews"),
 
-    VIDEOS("VIDEOS"),
+    VIDEOS("Videos"),
 
-    FEATURED("FEATURED"),
+    FEATURED("Featured"),
 
-    PHONE_FINDER("PHONE FINDER"),
+    PHONE_FINDER("Phone finder"),
 
-    DEALS("DEALS"),
+    DEALS("Deals"),
 
-    MERCH("MERCH"),
+    MERCH("Merch"),
 
-    COVERAGE("COVERAGE"),
+    COVERAGE("Coverage"),
 
-    CONTACT("CONTACT");
+    CONTACT("Contact");
     private String value;
 
     HeaderLink(String value){
