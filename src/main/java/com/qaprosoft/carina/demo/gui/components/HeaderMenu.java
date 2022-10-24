@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderMenu extends AbstractUIObject {
 
-    @FindBy(xpath = "//li/a[text() = %s]")
+    @FindBy(xpath = "//li/a[text() = '%s']")
     private ExtendedWebElement headerMenuButton;
 
-    @FindBy(xpath = "//span[text() = %s]")
+    @FindBy(xpath = "//*[@id='social-connect']/a[@class = \"%s\"]")
     private ExtendedWebElement headerIcon;
     public  HeaderMenu(WebDriver driver, SearchContext searchContext) {super(driver,searchContext);}
 
