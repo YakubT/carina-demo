@@ -20,6 +20,7 @@ import java.util.List;
 
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
+import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -34,6 +35,8 @@ import com.qaprosoft.carina.demo.gui.components.WeValuePrivacyAd;
 public class HomePage extends AbstractPage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+    @FindBy(id ="header")
+    private HeaderMenu headerMenu;
     @FindBy(id = "footmenu")
     private FooterMenu footerMenu;
 
@@ -51,6 +54,10 @@ public class HomePage extends AbstractPage {
 
     public FooterMenu getFooterMenu() {
         return footerMenu;
+    }
+
+    public HeaderMenu getHeaderMenu() {
+        return headerMenu;
     }
 
     public BrandModelsPage selectBrand(String brand) {
