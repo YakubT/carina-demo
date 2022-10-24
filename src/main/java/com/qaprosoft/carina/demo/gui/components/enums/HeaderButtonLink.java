@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.gui.components.enums;
 
-public enum HeaderLink {
+public enum HeaderButtonLink {
 
     HOME("Home"),
 
@@ -16,14 +16,14 @@ public enum HeaderLink {
 
     DEALS("Deals"),
 
-    MERCH("Merch"),
+    MERCH("\"Merch\""),
 
     COVERAGE("Coverage"),
 
     CONTACT("Contact");
     private String value;
 
-    HeaderLink(String value){
+    HeaderButtonLink(String value){
         this.value = value;
     }
 
