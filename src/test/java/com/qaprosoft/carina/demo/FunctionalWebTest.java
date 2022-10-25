@@ -74,4 +74,9 @@ public class FunctionalWebTest implements IAbstractTest {
         }
         softAssert.assertAll();
     }
+
+    @Test
+    public void testFooter() {
+
+    }
 }
