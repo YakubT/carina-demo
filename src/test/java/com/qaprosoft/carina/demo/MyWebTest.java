@@ -20,17 +20,18 @@ public class MyWebTest implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(MyWebTest.class);
     @Test
     public void testSignUp() {
-        // Open GSM Arena home page and verify page is opened
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.SIGN_UP);
         SignUpPage signUpPage = new SignUpPage(getDriver());
-        signUpPage.writeToNicknameTextBox("UserT6777");
+
         Properties property = new Properties();
         String email = "";
         String password = "";
+        String username ="";
         try (FileInputStream fis = new FileInputStream("src/main/resources/_testdata.properties")) {
             property.load(fis);
+            username = property.getProperty("user_name");
             email = property.getProperty("test_credentials").split("/")[0];
             password = property.getProperty("test_credentials").substring(
                     (property.getProperty("test_credentials").indexOf(":"))+1,
@@ -39,11 +40,14 @@ public class MyWebTest implements IAbstractTest {
         catch (IOException e){
             LOGGER.error(e);
         }
-        LOGGER.info(email);
-        LOGGER.info(password);
+
+        signUpPage.writeToNicknameTextBox(username);
         signUpPage.writeToEmailTextBox(email);
         signUpPage.writeToPasswordTextBox(password);
         signUpPage.confirmEverything();
         signUpPage.clickSubmitButton();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(signUpPage.isRegistered(),true,"Failed: not registered");
+        softAssert.assertAll();
     }
 }
