@@ -15,6 +15,9 @@
  */
 package com.qaprosoft.carina.demo.gui.components;
 
+import com.qaprosoft.carina.demo.gui.components.enums.FooterButtonLink;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -35,7 +38,7 @@ public class FooterMenu extends AbstractUIObject {
     @FindBy(linkText = "News")
     private ExtendedWebElement newsLink;
 
-    @FindBy(xpath = "//div[@class='footer-inner']//a[contains(text(),'%s')]")
+    @FindBy(xpath = "//div[@id='footer']/div[@id='footmenu']/p/a[contains(text(),'%s')]")
     private  ExtendedWebElement footerButton;
     public FooterMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
@@ -54,5 +57,23 @@ public class FooterMenu extends AbstractUIObject {
     public NewsPage openNewsPage() {
         newsLink.click();
         return new NewsPage(driver);
+    }
+
+    public boolean isFooterMenuButtonPresent (FooterButtonLink footerButtonLink) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        for (int i=0;i<10;i++) {
+            js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+            pause(0.2);
+        }
+        return footerButton.format(footerButtonLink.getValue()).isElementPresent();
+    }
+
+    public void clickFooterMenuButton (FooterButtonLink footerButtonLink) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        for (int i=0;i<10;i++) {
+            js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+            pause(0.2);
+        }
+        footerButton.format(footerButtonLink.getValue()).click();
     }
 }

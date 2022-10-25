@@ -2,9 +2,9 @@ package com.qaprosoft.carina.demo.gui.components.enums;
 
 public enum FooterButtonLink {
 
-    HOME("Home"),
-
     NEWS("News"),
+
+    REVIEWS("Reviews"),
 
     Compare("Compare"),
 
@@ -22,7 +22,9 @@ public enum FooterButtonLink {
 
     TWITTER ("Twitter"),
 
-    INSTAGRAM ("Instagram");
+    INSTAGRAM ("Instagram"),
+
+    HOME("Home");
 
     private String value;
 

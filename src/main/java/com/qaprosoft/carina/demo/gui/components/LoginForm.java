@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.Color;
@@ -34,11 +35,9 @@ public class LoginForm extends AbstractUIObject {
         passwordTextBox.type(s);
     }
 
-    public void SubmitClick() {
-        if (submitButton.isClickable())
-            submitButton.click();
-        else
-            throw new RuntimeException("Submit button is not clickable");
+    public LoginPage SubmitClick() {
+        submitButton.click();
+        return new LoginPage(getDriver());
     }
 
     public boolean isLoginTextPresented() {

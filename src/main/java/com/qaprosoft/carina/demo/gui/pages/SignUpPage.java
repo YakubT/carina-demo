@@ -2,7 +2,6 @@ package com.qaprosoft.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,8 +22,8 @@ public class SignUpPage extends AbstractPage {
     @FindBy(xpath = "//div[@id= \"ucsubmit-f\"]/input[@id= \"nick-submit\"]")
     private ExtendedWebElement submitButton;
 
-    @FindBy( xpath = "//*[text() = 'Your account was created. ']")
-    ExtendedWebElement registrationCheck;
+    @FindBy( xpath = "//[text() = 'Your account was created. ']")
+    ExtendedWebElement accountWasCreatedTitle;
     public SignUpPage(WebDriver driver) {
         super(driver);
         setPageURL("/register.php3");
@@ -55,6 +54,6 @@ public class SignUpPage extends AbstractPage {
     }
 
     public boolean isRegistered() {
-        return registrationCheck.isElementPresent();
+        return accountWasCreatedTitle.isElementPresent();
     }
 }
