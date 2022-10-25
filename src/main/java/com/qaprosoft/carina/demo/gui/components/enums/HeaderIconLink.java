@@ -14,7 +14,7 @@ public enum HeaderIconLink {
 
     MERCH("head-icon icon-cart icomoon-liga"),
 
-    LOG_IN("head-icon icon-login"),
+    LOG_IN("login-icon"),
 
     SIGN_UP("signup-icon no-margin-right");
 

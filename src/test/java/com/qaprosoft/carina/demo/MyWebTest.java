@@ -3,6 +3,7 @@ package com.qaprosoft.carina.demo;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
+import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -48,6 +49,33 @@ public class MyWebTest implements IAbstractTest {
         signUpPage.clickSubmitButton();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(signUpPage.isRegistered(),true,"Failed: not registered");
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void testLogIN() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.LOG_IN);
+        String email = "";
+        String password = "";
+        Properties property = new Properties();
+        try (FileInputStream fis = new FileInputStream("src/main/resources/_testdata.properties")) {
+            property.load(fis);
+            email = property.getProperty("test_credentials").split("/")[0];
+            password = property.getProperty("test_credentials").substring(
+                    (property.getProperty("test_credentials").indexOf(":"))+1,
+                    (property.getProperty("test_credentials").indexOf("}")));
+        }
+        catch (IOException e){
+            LOGGER.error(e);
+        }
+        homePage.getLoginForm().writeToLoginTextBox(email);
+        homePage.getLoginForm().writeToPasswordTextBox(password);
+        homePage.getLoginForm().SubmitClick();
+        LoginPage loginPage = new LoginPage(getDriver());
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(loginPage.isLoggedIn(),true,"Failed: not logged in");
         softAssert.assertAll();
     }
 }

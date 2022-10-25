@@ -47,6 +47,7 @@ public class HomePage extends AbstractPage {
     @FindBy(className = "news-column-index")
     private ExtendedWebElement newsColumn;
 
+    @FindBy(id = "login-popup2")
     private LoginForm loginForm;
 
     public HomePage(WebDriver driver) {

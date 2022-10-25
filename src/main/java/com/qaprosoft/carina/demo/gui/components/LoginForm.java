@@ -17,7 +17,7 @@ public class LoginForm extends AbstractUIObject {
     @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/input[@id = \"nick-submit\"]")
     private ExtendedWebElement submitButton;
 
-    public  LoginForm(WebDriver driver) {super(driver);}
+    public  LoginForm(WebDriver driver, SearchContext searchContext) {super(driver, searchContext);}
 
     public void writeToLoginTextBox(String s) {
         loginTextBox.type(s);
