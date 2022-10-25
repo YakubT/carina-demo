@@ -1,7 +1,9 @@
 package com.qaprosoft.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.components.LoginForm;
+import com.qaprosoft.carina.demo.gui.components.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import org.apache.commons.codec.binary.Hex;
@@ -47,6 +49,29 @@ public class FunctionalWebTest implements IAbstractTest {
                 "Forgot my password button is not present");
         softAssert.assertEquals(loginForm.isForgotPasswordButtonClickable(),true,
                 "Forgot my password button is not clickable");
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void testHeader() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        //Closing advertising if it's displayed
+        homePage.getWeValuePrivacyAd().closeAdIfPresent();
+        homePage.clickHamburgerMenu();
+        HeaderMenu headerMenu = homePage.getHeaderMenu();
+        SoftAssert softAssert = new SoftAssert();
+        for (HeaderButtonLink headerButtonLink:HeaderButtonLink.values()) {
+            softAssert.assertEquals(headerMenu.isHeaderMenuButtonPresent(headerButtonLink),true,"header " +
+                    "menu button isn't present ");
+        }
+
+        String prevUrl = "https://www.gsmarena.com/";
+        for (HeaderButtonLink headerButtonLink:HeaderButtonLink.values()) {
+            headerMenu.clickHeaderMenuButton(headerButtonLink);
+            softAssert.assertEquals(getDriver().getCurrentUrl()!=prevUrl,true,"Page didn't open");
+            prevUrl = getDriver().getCurrentUrl();
+        }
         softAssert.assertAll();
     }
 }

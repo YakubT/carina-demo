@@ -21,6 +21,10 @@ public class HeaderMenu extends AbstractUIObject {
         headerMenuButton.format(headerButtonLink.getValue()).click();
     }
 
+    public boolean isHeaderMenuButtonPresent(HeaderButtonLink headerButtonLink) {
+        return headerMenuButton.format(headerButtonLink.getValue()).isElementPresent();
+    }
+
     public void clickHeaderIcon(HeaderIconLink headerIconLink) {
         headerIcon.format(headerIconLink.getValue()).click();
     }

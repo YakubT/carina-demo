@@ -50,6 +50,9 @@ public class HomePage extends AbstractPage {
     @FindBy(id = "login-popup2")
     private LoginForm loginForm;
 
+    @FindBy(xpath = "//button[contains(@class, 'lines-button minus')]")
+    private ExtendedWebElement hamburgerMenuButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(newsColumn);
@@ -68,6 +71,10 @@ public class HomePage extends AbstractPage {
         return loginForm;
     }
 
+    public void clickHamburgerMenu() {
+        hamburgerMenuButton.click();
+    }
+
     public BrandModelsPage selectBrand(String brand) {
         LOGGER.info("selecting '" + brand + "' brand...");
         for (ExtendedWebElement brandLink : brandLinks) {
@@ -84,4 +91,5 @@ public class HomePage extends AbstractPage {
     public WeValuePrivacyAd getWeValuePrivacyAd() {
     	return new WeValuePrivacyAd(driver);
     }
+
 }
