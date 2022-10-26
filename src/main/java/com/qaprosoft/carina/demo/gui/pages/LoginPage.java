@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractPage {
 
-    @FindBy(xpath = "//*[text() = 'Login successful.']")
-    private ExtendedWebElement LoginSuccessfulText;
+    @FindBy(xpath = "//h3[text() = 'Login successful.']")
+    private ExtendedWebElement LoginSuccessfulTitle;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -16,6 +16,6 @@ public class LoginPage extends AbstractPage {
     }
 
     public boolean isLoggedIn(){
-        return  LoginSuccessfulText.isElementPresent();
+        return  LoginSuccessfulTitle.isElementPresent();
     }
 }

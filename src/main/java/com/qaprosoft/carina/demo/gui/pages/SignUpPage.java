@@ -22,7 +22,7 @@ public class SignUpPage extends AbstractPage {
     @FindBy(xpath = "//div[@id= \"ucsubmit-f\"]/input[@id= \"nick-submit\"]")
     private ExtendedWebElement submitButton;
 
-    @FindBy( xpath = "//[text() = 'Your account was created. ']")
+    @FindBy( xpath = "//h3[text() = 'Your account was created. ']")
     ExtendedWebElement accountWasCreatedTitle;
     public SignUpPage(WebDriver driver) {
         super(driver);
