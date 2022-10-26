@@ -17,7 +17,7 @@ public class LoginForm extends AbstractUIObject {
     private ExtendedWebElement passwordTextBox;
 
     @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/input[@id = \"nick-submit\"]")
-    private ExtendedWebElement submitButton;
+    private ExtendedWebElement loginButton;
 
     @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/p[text() = 'Login']")
     private ExtendedWebElement loginText;
@@ -35,8 +35,8 @@ public class LoginForm extends AbstractUIObject {
         passwordTextBox.type(s);
     }
 
-    public LoginPage SubmitClick() {
-        submitButton.click();
+    public LoginPage LoginButtonClick() {
+        loginButton.click();
         return new LoginPage(getDriver());
     }
 
@@ -48,17 +48,17 @@ public class LoginForm extends AbstractUIObject {
         return loginTextBox.isElementPresent();
     }
 
-    public boolean isSubmitButtonPresent() {
-        return submitButton.isElementPresent();
+    public boolean isLoginButtonPresent() {
+        return loginButton.isElementPresent();
     }
 
     public boolean isForgotPasswordButtonPresent() {return forgotPasswordButton.isElementPresent();}
 
-    public void hoverSubmitButton() {
-       submitButton.hover();
+    public void hoverLoginButton() {
+       loginButton.hover();
     }
-    public Color getSubmitButtonColor() {
-        return Color.fromString(submitButton.getElement().getCssValue("background-color"));
+    public Color getLoginButtonColor() {
+        return Color.fromString(loginButton.getElement().getCssValue("background-color"));
     }
 
     public boolean isPasswordTextBoxPresented() {

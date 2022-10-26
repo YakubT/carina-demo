@@ -47,10 +47,7 @@ public class SignUpPage extends AbstractPage {
     }
 
     public void clickSubmitButton() {
-        if (submitButton.isClickable())
-            submitButton.click();
-        else
-            throw new RuntimeException("Submit button is not clickable");
+        submitButton.click();
     }
 
     public boolean isRegistered() {

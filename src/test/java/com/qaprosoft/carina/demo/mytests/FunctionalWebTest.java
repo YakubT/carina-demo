@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.components.FooterMenu;
 import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.components.LoginForm;
@@ -20,10 +21,11 @@ public class FunctionalWebTest implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(FunctionalWebTest.class);
 
     @Test
+    @MethodOwner(owner = "YakubT")
     public void testLoginForm() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.LOG_IN);
+        homePage.getHeaderMenu().clickHeaderMenuIcon(HeaderIconLink.LOG_IN);
         SoftAssert softAssert = new SoftAssert();
         LoginForm loginForm = homePage.getLoginForm();
         softAssert.assertEquals(loginForm.isLoginTextPresented(),true,
@@ -34,12 +36,12 @@ public class FunctionalWebTest implements IAbstractTest {
         softAssert.assertEquals(loginForm.isPasswordTextBoxPresented(),true, "Passwords textField is " +
                 "not present");
         softAssert.assertEquals(loginForm.isLoginTextBoxTypeAble(),true, "Can't type password");
-        softAssert.assertEquals(loginForm.isSubmitButtonPresent(),true, "Log in button is not present");
-        loginForm.hoverSubmitButton();
+        softAssert.assertEquals(loginForm.isLoginButtonPresent(),true, "Log in button is not present");
+        loginForm.hoverLoginButton();
         pause(1);
-        Color color =Color.fromString(loginForm.getSubmitButtonColor().asHex());
+        Color color =Color.fromString(loginForm.getLoginButtonColor().asHex());
         LOGGER.info(color.asHex());
-        softAssert.assertEquals(loginForm.getSubmitButtonColor().asHex().equals("#d50000"),true,
+        softAssert.assertEquals(loginForm.getLoginButtonColor().asHex().equals("#d50000"),true,
                 "Color is not red");
         softAssert.assertEquals(loginForm.isForgotPasswordButtonPresent(),true,
                 "Forgot my password button is not present");
@@ -49,6 +51,7 @@ public class FunctionalWebTest implements IAbstractTest {
     }
 
     @Test
+    @MethodOwner(owner = "YakubT")
     public void testHeader() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -73,6 +76,7 @@ public class FunctionalWebTest implements IAbstractTest {
     }
 
     @Test
+    @MethodOwner(owner = "YakubT")
     public void testFooter() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();

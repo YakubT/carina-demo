@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
@@ -19,12 +20,11 @@ public class MyWebTest implements IAbstractTest {
 
     private static final Logger LOGGER = LogManager.getLogger(MyWebTest.class);
     @Test
+    @MethodOwner(owner = "YakubT")
     public void testSignUp() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.SIGN_UP);
-        SignUpPage signUpPage = new SignUpPage(getDriver());
-
+        SignUpPage signUpPage = homePage.getHeaderMenu().goToSignUpPage();
         Properties property = new Properties();
         String email = "";
         String password = "";
@@ -52,10 +52,11 @@ public class MyWebTest implements IAbstractTest {
     }
 
     @Test
+    @MethodOwner(owner = "YakubT")
     public void testLogIN() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        homePage.getHeaderMenu().clickHeaderIcon(HeaderIconLink.LOG_IN);
+        homePage.getHeaderMenu().clickHeaderMenuIcon(HeaderIconLink.LOG_IN);
         String email = "";
         String password = "";
         Properties property = new Properties();
@@ -71,8 +72,7 @@ public class MyWebTest implements IAbstractTest {
         }
         homePage.getLoginForm().writeToLoginTextBox(email);
         homePage.getLoginForm().writeToPasswordTextBox(password);
-        homePage.getLoginForm().SubmitClick();
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = homePage.getLoginForm().LoginButtonClick();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(loginPage.isLoggedIn(),true,"Failed: not logged in");
         softAssert.assertAll();

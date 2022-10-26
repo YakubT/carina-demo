@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
+import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +26,12 @@ public class HeaderMenu extends AbstractUIObject {
         return headerMenuButton.format(headerButtonLink.getValue()).isElementPresent();
     }
 
-    public void clickHeaderIcon(HeaderIconLink headerIconLink) {
+    public void clickHeaderMenuIcon(HeaderIconLink headerIconLink) {
         headerIcon.format(headerIconLink.getValue()).click();
+    }
+
+    public SignUpPage goToSignUpPage() {
+        clickHeaderMenuIcon(HeaderIconLink.SIGN_UP);
+        return new SignUpPage(getDriver());
     }
 }
