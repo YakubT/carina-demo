@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo;
+package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.components.FooterMenu;
@@ -8,11 +8,8 @@ import com.qaprosoft.carina.demo.gui.components.enums.FooterButtonLink;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import org.apache.commons.codec.binary.Hex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.devtools.v85.dom.model.RGBA;
-import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
