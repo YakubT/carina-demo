@@ -15,8 +15,7 @@
  */
 package com.qaprosoft.carina.demo.gui.components;
 
-import com.qaprosoft.carina.demo.gui.components.enums.FooterButtonLink;
-import org.openqa.selenium.By;
+import com.qaprosoft.carina.demo.gui.enums.FooterButtonLink;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;

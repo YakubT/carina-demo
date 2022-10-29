@@ -2,7 +2,7 @@ package com.qaprosoft.carina.demo.mytests;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
+import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 import com.qaprosoft.carina.demo.gui.pages.SignUpPage;

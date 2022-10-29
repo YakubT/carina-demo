@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.components.enums;
+package com.qaprosoft.carina.demo.gui.enums;
 
 public enum HeaderIconLink {
 

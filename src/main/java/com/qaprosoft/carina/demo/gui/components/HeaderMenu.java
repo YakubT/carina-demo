@@ -2,8 +2,8 @@ package com.qaprosoft.carina.demo.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.demo.gui.components.enums.HeaderButtonLink;
-import com.qaprosoft.carina.demo.gui.components.enums.HeaderIconLink;
+import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
+import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
