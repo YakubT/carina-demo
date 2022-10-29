@@ -37,7 +37,7 @@ public class LoginForm extends AbstractUIObject {
         passwordTextBox.type(s);
     }
 
-    public LoginPage LoginButtonClick() {
+    public LoginPage clickLoginButton() {
         loginButton.click();
         return new LoginPage(getDriver());
     }
