@@ -1,20 +1,20 @@
 package com.qaprosoft.carina.demo.mytests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 
 public class MyWebTest implements IAbstractTest {
 
