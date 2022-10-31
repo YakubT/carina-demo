@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.mytests.dataprovider;
 
 import org.testng.annotations.DataProvider;
 

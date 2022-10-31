@@ -2,16 +2,12 @@ package com.qaprosoft.carina.demo.mytests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
 
+import com.qaprosoft.carina.demo.mytests.dataprovider.DataProviderLoginTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
