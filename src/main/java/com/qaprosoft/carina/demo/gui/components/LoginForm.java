@@ -12,19 +12,19 @@ import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 
 public class LoginForm extends AbstractUIObject {
 
-    @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/input[@id = \"email\"]")
+    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'email']")
     private ExtendedWebElement loginTextBox;
 
-    @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/input[@id = \"upass\"]")
+    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'upass']")
     private ExtendedWebElement passwordTextBox;
 
-    @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/input[@id = \"nick-submit\"]")
+    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'nick-submit']")
     private ExtendedWebElement loginButton;
 
-    @FindBy (xpath = "//*[@id = \"login-popup2\"]/form/p[text() = 'Login']")
+    @FindBy (xpath = "//*[@id = 'login-popup2']/form/p[text() = 'Login']")
     private ExtendedWebElement loginText;
 
-    @FindBy (xpath = "//*[@id = \"login-popup2\"]/a[@class = \"forgot\"]")
+    @FindBy (xpath = "//*[@id = 'login-popup2']/a[@class = 'forgot']")
     private ExtendedWebElement forgotPasswordButton;
 
     public  LoginForm(WebDriver driver, SearchContext searchContext) {super(driver, searchContext);}
@@ -91,5 +91,13 @@ public class LoginForm extends AbstractUIObject {
 
     public boolean isForgotPasswordButtonClickable() {
         return forgotPasswordButton.isClickable();
+    }
+
+    public String getTooltipMessageLoginTextBox() {
+        return loginTextBox.getAttribute("validationMessage");
+    }
+
+    public String getTooltipMessagePasswordTextBox() {
+        return passwordTextBox.getAttribute("validationMessage");
     }
 }

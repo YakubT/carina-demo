@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -90,19 +91,40 @@ public class LoginTest implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         homePage.getHeaderMenu().clickHeaderMenuIcon(HeaderIconLink.LOG_IN);
-        homePage.getLoginForm().writeToLoginTextBox(login);
-        homePage.getLoginForm().writeToPasswordTextBox(password);
-        homePage.getLoginForm().clickLoginButton();
-        Assert.assertEquals(getDriver().switchTo().activeElement().getText().contains(expectedMessage),true,
-                "Fail: actual: "+getDriver().switchTo().activeElement().getText()+" expected: "+
-                        expectedMessage);
+        LoginForm loginForm = homePage.getLoginForm();
+        loginForm.writeToLoginTextBox(login);
+        loginForm.writeToPasswordTextBox(password);
+        loginForm.clickLoginButton();
+        LOGGER.info("login tooltip: "+loginForm.getTooltipMessagePasswordTextBox());
+        LOGGER.info("password tooltip: "+loginForm.getTooltipMessageLoginTextBox());
+        String actualMessage = !loginForm.getTooltipMessageLoginTextBox().isEmpty()?loginForm.getTooltipMessageLoginTextBox():
+                loginForm.getTooltipMessagePasswordTextBox();
+        LOGGER.info(actualMessage);
+        LOGGER.info(expectedMessage);
+        Assert.assertEquals(actualMessage.contains(expectedMessage),true,
+                "Fail: actual: "+actualMessage+" expected: "+
+                       expectedMessage);
     }
 
     @DataProvider(parallel = false, name = "login scenarios")
     public Object[][] dataProviderLogin() {
         return new Object[][] {
+                //1
                 {"","","Заполните это поле"},
-                {"u","","Заполните это поле"}
+                //2
+                {"testEmail","","Адрес электронной почты должен содержать"},
+                {"testEmail@","","Введите часть адреса"},
+                //3
+                {"","1", "Заполните это поле"},
+                //4
+                {"testEmail","1","Адрес электронной почты должен содержать"},
+                {"testEmail@","1","Введите часть адреса"},
+                //5
+                {"testEmail","1234To","Адрес электронной почты должен содержать"},
+                //6
+                {"testEmail@ukr.net","1","Введите данные в указанном формате."},
+                //7
+                {"testEmail@","1234To","Введите часть адреса"},
         };
     }
 }
