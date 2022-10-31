@@ -85,7 +85,8 @@ public class LoginTest implements IAbstractTest {
         softAssert.assertAll();
     }
 
-    @Test (description = "test unsuccessful login scenarios", dataProvider = "login scenarios")
+    @Test (description = "test unsuccessful login scenarios", dataProvider = "login scenarios",
+            dataProviderClass = DataProviderLoginTest.class)
     @MethodOwner(owner = "YakubT")
     public void testLogInUnSuccessfulDataProvider(String login, String password, String expectedMessage) {
         HomePage homePage = new HomePage(getDriver());
