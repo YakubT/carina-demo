@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="functionality" verbose="1" parallel="tests">
+  <test name="LoginFunc">
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.LoginTest">
+              <methods>
+                  <include name="testLoginFormFunctionality"/>
+              </methods>
+          </class>
+      </classes>
+  </test>
+  <test name="HeaderFunc">
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.HeaderTest">
+              <methods>
+                  <include name="testHeaderFunctionality"/>
+              </methods>
+          </class>
+      </classes>
+  </test>
+</suite>
