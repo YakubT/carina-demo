@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="functionality" verbose="1" parallel="tests">
+
   <test name="LoginFunc">
       <classes>
           <class name="com.qaprosoft.carina.demo.mytests.LoginTest">
@@ -9,6 +10,7 @@
           </class>
       </classes>
   </test>
+
   <test name="HeaderFunc">
       <classes>
           <class name="com.qaprosoft.carina.demo.mytests.HeaderTest">
@@ -18,6 +20,7 @@
           </class>
       </classes>
   </test>
+
     <test name="FooterFunc">
         <classes>
             <class name="com.qaprosoft.carina.demo.mytests.FooterTest">

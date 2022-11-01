@@ -1,20 +1,24 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="AllGsmArenaTests" verbose="1" parallel="tests">
+
     <test name="Login">
         <classes>
             <class name="com.qaprosoft.carina.demo.mytests.LoginTest"/>
         </classes>
     </test>
+
     <test name="SignUp">
         <classes>
             <class name="com.qaprosoft.carina.demo.mytests.SignupTest"/>
         </classes>
     </test>
+
     <test name="Footer">
         <classes>
             <class name="com.qaprosoft.carina.demo.mytests.FooterTest"/>
         </classes>
     </test>
+
     <test name="Header">
         <classes>
             <class name="com.qaprosoft.carina.demo.mytests.HeaderTest"/>
