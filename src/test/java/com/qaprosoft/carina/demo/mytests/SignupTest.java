@@ -5,8 +5,13 @@ import java.io.IOException;
 import java.util.Properties;
 
 
+import com.qaprosoft.carina.core.foundation.utils.StringGenerator;
+import com.qaprosoft.carina.demo.db.models.User;
+import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.UsernameAndPassword;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -25,25 +30,9 @@ public class SignupTest implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         SignUpPage signUpPage = homePage.getHeaderMenu().goToSignUpPage();
-        Properties property = new Properties();
-        String email = "";
-        String password = "";
-        String username ="";
-        try (FileInputStream fis = new FileInputStream("src/main/resources/_testdata.properties")) {
-            property.load(fis);
-            username = property.getProperty("user_name");
-            email = property.getProperty("test_credentials").split("/")[0];
-            password = property.getProperty("test_credentials").substring(
-                    (property.getProperty("test_credentials").indexOf(":"))+1,
-                    (property.getProperty("test_credentials").indexOf("}")));
-        }
-        catch (IOException e){
-            LOGGER.error(e);
-        }
-
-        signUpPage.writeToNicknameTextBox(username);
-        signUpPage.writeToEmailTextBox(email);
-        signUpPage.writeToPasswordTextBox(password);
+        signUpPage.writeToNicknameTextBox(StringGenerator.generateWord(10));
+        signUpPage.writeToEmailTextBox(StringGenerator.generateEmail());
+        signUpPage.writeToPasswordTextBox(StringGenerator.generateWord(5)+"B1234");
         signUpPage.confirmEverything();
         signUpPage.clickSubmitButton();
         SoftAssert softAssert = new SoftAssert();
