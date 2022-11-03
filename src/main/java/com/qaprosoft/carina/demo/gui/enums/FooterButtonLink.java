@@ -24,6 +24,22 @@ public enum FooterButtonLink {
 
     INSTAGRAM ("Instagram"),
 
+    GSMARENACOM ("GSMArena.com"),
+
+    MOBILE_VERSION("Mobile version"),
+
+    ANDROID_APP ("Android app"),
+
+    TOOLS ("Tools"),
+
+    CONTACT_US ("Contact us"),
+
+    MERCH_STORE ("Merch store"),
+
+    PRIVACY("Privacy"),
+
+    TERMS_OF_USE("Terms of use"),
+
     HOME("Home");
 
     private String value;
