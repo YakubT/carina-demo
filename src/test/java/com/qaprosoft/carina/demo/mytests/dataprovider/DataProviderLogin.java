@@ -2,7 +2,7 @@ package com.qaprosoft.carina.demo.mytests.dataprovider;
 
 import org.testng.annotations.DataProvider;
 
-public class DataProviderLoginTest {
+public class DataProviderLogin {
 
     @DataProvider(name = "login scenarios")
     public Object[][] dataProviderMethod() {
