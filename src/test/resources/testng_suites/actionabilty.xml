@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Action ability" verbose="1" parallel="tests">
+
+  <test name="Login ability">
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.LoginTest">
+              <methods>
+                  <include name="testLogInAbility"/>
+              </methods>
+          </class>
+      </classes>
+  </test>
+
+  <test name="Sign up ability">
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.SignupTest">
+              <methods>
+                  <include name="testSignUpAbility"/>
+              </methods>
+          </class>
+      </classes>
+  </test>
+
+</suite>

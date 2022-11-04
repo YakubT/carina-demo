@@ -1,17 +1,9 @@
 package com.qaprosoft.carina.demo.mytests;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 
 import com.qaprosoft.carina.core.foundation.utils.StringGenerator;
-import com.qaprosoft.carina.demo.db.models.User;
-import org.apache.commons.lang3.RandomUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.UsernameAndPassword;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -26,7 +18,7 @@ public class SignupTest implements IAbstractTest {
 
     @Test(description = "test ability to sign up")
     @MethodOwner(owner = "YakubT")
-    public void testSignUp() {
+    public void testSignUpAbility() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         SignUpPage signUpPage = homePage.getHeaderMenu().goToSignUpPage();
