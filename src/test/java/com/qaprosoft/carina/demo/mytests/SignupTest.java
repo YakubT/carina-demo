@@ -1,7 +1,7 @@
 package com.qaprosoft.carina.demo.mytests;
 
 
-import com.qaprosoft.carina.core.foundation.utils.StringGenerator;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.utils.StringGenerator;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
 
