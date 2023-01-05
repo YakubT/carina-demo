@@ -1,10 +1,10 @@
 package com.qaprosoft.carina.demo.mytests;
 
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
