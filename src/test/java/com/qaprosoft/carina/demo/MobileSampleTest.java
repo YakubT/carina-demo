@@ -65,6 +65,7 @@ public class MobileSampleTest implements IAbstractTest, IMobileUtils {
         MobileContextUtils contextHelper = new MobileContextUtils();
         contextHelper.switchMobileContext(View.WEB);
         ContactUsPageBase contactUsPage = webViewPageBase.goToContactUsPage();
+        contextHelper.switchMobileContext(View.WEB1);
         contactUsPage.typeName("John Doe");
         contactUsPage.typeEmail("some@email.com");
         contactUsPage.typeQuestion("This is a message");

@@ -10,15 +10,18 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = WebViewPageBase.class)
 public class WebViewPage extends WebViewPageBase {
 
-    @FindBy(xpath = "//*[@class='t708__icon']")
+    @FindBy(linkText = "Contact Us")
     private ExtendedWebElement contactUsLink;
 
+    @FindBy(xpath = "//div[@id = 'rec42972268']//div[contains(@class,'burger')]")
+    private  ExtendedWebElement burger;
     public WebViewPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public ContactUsPageBase goToContactUsPage() {
+        burger.click();
         contactUsLink.click();
         return initPage(getDriver(), ContactUsPageBase.class);
     }
