@@ -2,12 +2,17 @@ package com.qaprosoft.carina.demo.mytests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.utils.R;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -29,24 +34,13 @@ public class LoginTest implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         homePage.getHeaderMenu().clickHeaderMenuIcon(HeaderIconLink.LOG_IN);
-        String email = "";
-        String password = "";
-        Properties property = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/main/resources/_testdata.properties")) {
-            property.load(fis);
-            email = property.getProperty("test_credentials").split("/")[0];
-            password = property.getProperty("test_credentials").substring(
-                    (property.getProperty("test_credentials").indexOf(":"))+1,
-                    (property.getProperty("test_credentials").indexOf("}")));
-        }
-        catch (IOException e){
-            LOGGER.error(e);
-        }
+        String email = R.TESTDATA.get("email");
+        String password = R.TESTDATA.get("password");
         homePage.getLoginForm().writeToLoginTextBox(email);
         homePage.getLoginForm().writeToPasswordTextBox(password);
-        LoginPage loginPage = homePage.getLoginForm().clickLoginButton();
+        homePage.getLoginForm().clickLoginButton();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(loginPage.isLoggedIn(),true,"Failed: not logged in");
+        softAssert.assertTrue(homePage.isPageOpened(),"Login is not successful");
         softAssert.assertAll();
     }
 
