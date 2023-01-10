@@ -54,7 +54,7 @@ public class MobileSampleTest implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(), "Carina description page isn't opened");
     }
 
-	@Test()
+    @Test()
     @MethodOwner(owner = "qpsdemo")
     @TestLabel(name = "feature", value = {"mobile", "regression"})
     public void testWebView() {
@@ -63,18 +63,17 @@ public class MobileSampleTest implements IAbstractTest, IMobileUtils {
         loginPage.login();
         WebViewPageBase webViewPageBase = initPage(getDriver(), WebViewPageBase.class);
         MobileContextUtils contextHelper = new MobileContextUtils();
-
-        webViewPageBase.goToContactUsPage();
-        //contextHelper.switchMobileContext(View.WEB);
-        ContactUsPageBase contactUsPage = initPage(getDriver(), ContactUsPageBase.class);
+        contextHelper.switchMobileContext(View.WEB);
+        ContactUsPageBase contactUsPage = webViewPageBase.goToContactUsPage();
+        contextHelper.switchMobileContext(View.WEB1);
         contactUsPage.typeName("John Doe");
         contactUsPage.typeEmail("some@email.com");
         contactUsPage.typeQuestion("This is a message");
         //TODO: [VD] move page driver related action outside from test class!
         hideKeyboard();
         contactUsPage.submit();
-        //Assert.assertTrue(contactUsPage.isErrorMessagePresent() || contactUsPage.isRecaptchaPresent(),
-               // "Error message or captcha was not displayed");
+        Assert.assertTrue(contactUsPage.isErrorMessagePresent() || contactUsPage.isRecaptchaPresent(),
+                "Error message or captcha was not displayed");
     }
 
     @Test()
