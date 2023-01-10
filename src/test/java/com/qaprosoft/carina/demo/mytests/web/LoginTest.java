@@ -1,18 +1,8 @@
 package com.qaprosoft.carina.demo.mytests.web;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.time.Duration;
-import java.util.NoSuchElementException;
-import java.util.Properties;
-
-import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
-import com.zebrunner.carina.utils.R;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -22,8 +12,10 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.components.LoginForm;
 import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 import com.qaprosoft.carina.demo.mytests.dataprovider.DataProviderLogin;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.utils.R;
+
 public class LoginTest implements IAbstractTest {
 
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class);
