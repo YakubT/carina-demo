@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests.web;
+package com.qaprosoft.carina.demo.mytests;
 
 
 

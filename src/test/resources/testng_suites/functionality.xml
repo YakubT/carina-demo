@@ -3,7 +3,7 @@
 
   <test name="LoginFunc">
       <classes>
-          <class name="com.qaprosoft.carina.demo.mytests.web.LoginTest">
+          <class name="com.qaprosoft.carina.demo.mytests.LoginTest">
               <methods>
                   <include name="testLoginFormFunctionality"/>
               </methods>
@@ -13,7 +13,7 @@
 
   <test name="HeaderFunc">
       <classes>
-          <class name="com.qaprosoft.carina.demo.mytests.web.HeaderTest">
+          <class name="com.qaprosoft.carina.demo.mytests.HeaderTest">
               <methods>
                   <include name="testHeaderFunctionality"/>
               </methods>
@@ -23,7 +23,7 @@
 
     <test name="FooterFunc">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.web.FooterTest">
+            <class name="com.qaprosoft.carina.demo.mytests.FooterTest">
                 <methods>
                     <include name="testFooterFunctionality"/>
                 </methods>
