@@ -10,16 +10,16 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ContactUsPageBase.class)
 public class ContactUsPage extends ContactUsPageBase {
 
-    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[1]/android.widget.EditText")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.EditText")
     private ExtendedWebElement emailField;
 
-    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[2]/android.widget.EditText")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText")
     private ExtendedWebElement nameField;
 
-    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[3]/android.widget.EditText")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.EditText")
     private ExtendedWebElement questionField;
 
-    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[4]")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.Button")
     private ExtendedWebElement submitButton;
 
     @FindBy(xpath = "//div[contains(@class,'t-form__errorbox-text')]")
