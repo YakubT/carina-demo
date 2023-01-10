@@ -53,6 +53,9 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//button[contains(@class, 'lines-button minus')]")
     private ExtendedWebElement hamburgerMenuButton;
 
+    @FindBy(xpath = "//div[@class = 'news-item'][%d]")
+    private ExtendedWebElement article;
+
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(newsColumn);
@@ -92,4 +95,16 @@ public class HomePage extends AbstractPage {
     	return new WeValuePrivacyAd(driver);
     }
 
+    public boolean isArticlePresent(int number) {
+        article.format(number).scrollTo();
+        return article.format(number).isElementPresent();
+    }
+
+    public boolean isArticleHasText(int number) {
+        return !article.format(number).getText().equals("");
+    }
+
+    public String getArticleText(int number) {
+        return article.format(number).getText();
+    }
 }
