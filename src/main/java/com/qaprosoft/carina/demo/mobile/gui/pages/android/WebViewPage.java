@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = WebViewPageBase.class)
 public class WebViewPage extends WebViewPageBase {
 
-    @FindBy(xpath = "//android.widget.TextView[2]")
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.widget.TextView[2]")
     private ExtendedWebElement hamburgerMenu;
 
-    @FindBy(xpath ="//android.view.View[@content-desc='Contact Us']")
+    @FindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View[2]/android.widget.ListView/android.view.View[5]")
     private ExtendedWebElement contactUsLink;
 
     public WebViewPage(WebDriver driver) {
