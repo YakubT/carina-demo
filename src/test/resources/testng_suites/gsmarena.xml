@@ -3,25 +3,25 @@
 
     <test name="Login">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.LoginTest"/>
+            <class name="com.qaprosoft.carina.demo.mytests.web.LoginTest"/>
         </classes>
     </test>
 
     <test name="SignUp">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.SignupTest"/>
+            <class name="com.qaprosoft.carina.demo.mytests.web.SignupTest"/>
         </classes>
     </test>
 
     <test name="Footer">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.FooterTest"/>
+            <class name="com.qaprosoft.carina.demo.mytests.web.FooterTest"/>
         </classes>
     </test>
 
     <test name="Header">
         <classes>
-            <class name="com.qaprosoft.carina.demo.mytests.HeaderTest"/>
+            <class name="com.qaprosoft.carina.demo.mytests.web.HeaderTest"/>
         </classes>
     </test>
 </suite>

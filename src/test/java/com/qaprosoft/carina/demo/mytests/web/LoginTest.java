@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.mytests.web;
 
 import java.io.FileInputStream;
 import java.io.IOException;

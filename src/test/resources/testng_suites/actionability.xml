@@ -3,7 +3,7 @@
 
   <test name="Login ability">
       <classes>
-          <class name="com.qaprosoft.carina.demo.mytests.LoginTest">
+          <class name="com.qaprosoft.carina.demo.mytests.web.LoginTest">
               <methods>
                   <include name="testLogInAbility"/>
               </methods>
@@ -13,7 +13,7 @@
 
   <test name="Sign up ability">
       <classes>
-          <class name="com.qaprosoft.carina.demo.mytests.SignupTest">
+          <class name="com.qaprosoft.carina.demo.mytests.web.SignupTest">
               <methods>
                   <include name="testSignUpAbility"/>
               </methods>

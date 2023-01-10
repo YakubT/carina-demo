@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.mytests.web;
 
 import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;

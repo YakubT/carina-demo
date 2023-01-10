@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mytests;
+package com.qaprosoft.carina.demo.mytests.web;
 
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.Assert;
