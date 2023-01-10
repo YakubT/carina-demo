@@ -10,18 +10,24 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = WebViewPageBase.class)
 public class WebViewPage extends WebViewPageBase {
 
-    @FindBy(linkText = "Contact Us")
+    @FindBy(xpath = "//android.widget.TextView[2]")
+    private ExtendedWebElement hamburgerMenu;
+
+    @FindBy(xpath ="//android.view.View[@content-desc='Contact Us']")
     private ExtendedWebElement contactUsLink;
 
-    @FindBy(xpath = "//div[@id = 'rec42972268']//div[contains(@class,'burger')]")
-    private  ExtendedWebElement burger;
     public WebViewPage(WebDriver driver) {
         super(driver);
     }
 
+    public void hamburgerMenuClick() {
+        hamburgerMenu.click();
+    }
     @Override
     public ContactUsPageBase goToContactUsPage() {
-        burger.click();
+        pause(1);
+        hamburgerMenuClick();
+        pause(1);
         contactUsLink.click();
         return initPage(getDriver(), ContactUsPageBase.class);
     }

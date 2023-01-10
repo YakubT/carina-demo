@@ -10,16 +10,16 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ContactUsPageBase.class)
 public class ContactUsPage extends ContactUsPageBase {
 
-    @FindBy(xpath = "//input[@name='Email']")
+    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[1]/android.widget.EditText")
     private ExtendedWebElement emailField;
 
-    @FindBy(xpath = "//input[@name='Name']")
+    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[2]/android.widget.EditText")
     private ExtendedWebElement nameField;
 
-    @FindBy(xpath = "//textarea[@name='Textarea']")
+    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[3]/android.widget.EditText")
     private ExtendedWebElement questionField;
 
-    @FindBy(xpath = "//button[@type='submit' and text()='Send']")
+    @FindBy(xpath = "//*[@resource-id = 'form42080497']/android.view.View[4]")
     private ExtendedWebElement submitButton;
 
     @FindBy(xpath = "//div[contains(@class,'t-form__errorbox-text')]")
