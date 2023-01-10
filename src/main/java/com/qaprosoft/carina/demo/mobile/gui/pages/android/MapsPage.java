@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.demo.mobile.gui.pages.android;
 
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,8 +16,11 @@ public class MapsPage extends MapsPageBase {
 
     public MapsPage(WebDriver driver) {
         super(driver);
-        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
-        setUiLoadedMarker(toolbar);
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return toolbar.isElementPresent();
     }
 
 }
