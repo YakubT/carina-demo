@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.demo.mytests.mobile;
 
-
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
