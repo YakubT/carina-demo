@@ -1,0 +1,52 @@
+package com.qaprosoft.carina.demo.mytests.mobile;
+
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+import org.testng.annotations.Test;
+
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
+import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
+import com.qaprosoft.carina.demo.mobile.gui.pages.common.WelcomePageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
+
+public class LoginTest implements IAbstractTest, IMobileUtils {
+
+    @Test(description = "verifying login page")
+    @MethodOwner(owner = "YakubT")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
+    public void testLogin() {
+        //Login page is opened
+        WelcomePageBase welcomePageBase = initPage(getDriver(),WelcomePageBase.class);
+        LoginPageBase loginPage = welcomePageBase.clickNextBtn();
+        Assert.assertTrue(loginPage.isPageOpened(),"Login page is not opened");
+        // verify all fields are presented
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(loginPage.isNameFieldPresented(),"Name field is not presented");
+        softAssert.assertTrue(loginPage.isPasswordFieldPresented(),"Password field is not presented");
+        softAssert.assertTrue(loginPage.isMaleSexRadioButtonPresented(),"Male radiobutton is not presented");
+        softAssert.assertTrue(loginPage.isFemaleSexRadioButtonPresented(),"Female radiobutton is not presented");
+        softAssert.assertTrue(loginPage.isPrivacyPolicyCheckboxPresented(),"Privacy policy " +
+                "checkbox is not presented");
+        softAssert.assertAll();
+        //male/female and privacy policy isn't checked
+        softAssert.assertTrue(!loginPage.isSexMaleChecked(),"Male mustn't be checked");
+        softAssert.assertTrue(!loginPage.isSexFemaleChecked(),"Female mustn't be checked");
+        softAssert.assertTrue(!loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy mustn't be checked");
+        softAssert.assertAll();
+        // type name and password
+        loginPage.typeName("YakubT");
+        loginPage.typePassword("password1234567");
+        //select sex
+        loginPage.selectMaleSex();
+        Assert.assertTrue(loginPage.isSexMaleChecked(),"Male isn't checked");
+        //tap Privacy Policy checkbox
+        loginPage.checkPrivacyPolicyCheckbox();
+        Assert.assertTrue(loginPage.isSexMaleChecked(),"Privacy Policy isn't checked");
+        //click Sign Up btn
+        CarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
+        Assert.assertTrue(carinaDescriptionPage.isPageOpened(),"WebViewPage isn't opened");
+    }
+}
