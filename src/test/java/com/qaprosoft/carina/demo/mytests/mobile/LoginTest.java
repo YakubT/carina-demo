@@ -24,11 +24,11 @@ public class LoginTest implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(loginPage.isPageOpened(),"Login page is not opened");
         // verify all fields are presented
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(loginPage.isNameFieldPresented(),"Name field is not presented");
-        softAssert.assertTrue(loginPage.isPasswordFieldPresented(),"Password field is not presented");
-        softAssert.assertTrue(loginPage.isMaleSexRadioButtonPresented(),"Male radiobutton is not presented");
-        softAssert.assertTrue(loginPage.isFemaleSexRadioButtonPresented(),"Female radiobutton is not presented");
-        softAssert.assertTrue(loginPage.isPrivacyPolicyCheckboxPresented(),"Privacy policy " +
+        softAssert.assertTrue(loginPage.isNameFieldPresent(),"Name field is not presented");
+        softAssert.assertTrue(loginPage.isPasswordFieldPresent(),"Password field is not presented");
+        softAssert.assertTrue(loginPage.isMaleSexRadioButtonPresent(),"Male radiobutton is not presented");
+        softAssert.assertTrue(loginPage.isFemaleSexRadioButtonPresent(),"Female radiobutton is not presented");
+        softAssert.assertTrue(loginPage.isPrivacyPolicyCheckboxPresent(),"Privacy policy " +
                 "checkbox is not presented");
         softAssert.assertAll();
         //male/female and privacy policy isn't checked
