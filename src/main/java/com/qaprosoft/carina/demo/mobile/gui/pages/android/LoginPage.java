@@ -122,5 +122,10 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
         return clickLoginBtn();
     }
 
+    @Override
+    public String getPasswordFieldText() {
+        return passwordInputField.getText();
+    }
+
 
 }

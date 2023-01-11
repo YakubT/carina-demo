@@ -37,7 +37,9 @@ public class LoginTest implements IAbstractTest, IMobileUtils {
         softAssert.assertFalse(loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy mustn't be checked");
         // type name and password
         loginPage.typeName(R.TESTDATA.get("user_name"));
-        loginPage.typePassword(R.TESTDATA.get("pass"));
+        loginPage.typePassword(R.TESTDATA.getDecrypted("pass"));
+        softAssert.assertEquals(loginPage.getPasswordFieldText(), R.TESTDATA.getDecrypted("pass"),
+                "Password is not typed");
         //select sex
         loginPage.selectMaleSex();
         Assert.assertTrue(loginPage.isSexMaleChecked(),"Male isn't checked");

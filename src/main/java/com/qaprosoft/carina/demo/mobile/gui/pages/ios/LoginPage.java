@@ -117,6 +117,11 @@ public class LoginPage extends LoginPageBase {
 	}
 
 	@Override
+	public String getPasswordFieldText() {
+		return passwordInputField.getText();
+	}
+
+	@Override
 	public CarinaDescriptionPageBase login(){
 		String username = "Test user";
 		String password = RandomStringUtils.randomAlphabetic(10);
