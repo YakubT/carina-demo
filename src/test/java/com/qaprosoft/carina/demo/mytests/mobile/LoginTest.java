@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.mytests.mobile;
 
-import com.zebrunner.carina.utils.R;
+
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
@@ -11,6 +11,7 @@ import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
 public class LoginTest implements IAbstractTest, IMobileUtils {
