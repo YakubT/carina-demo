@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.mytests.mobile;
 
+import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
@@ -30,15 +31,13 @@ public class LoginTest implements IAbstractTest, IMobileUtils {
         softAssert.assertTrue(loginPage.isFemaleSexRadioButtonPresent(),"Female radiobutton is not presented");
         softAssert.assertTrue(loginPage.isPrivacyPolicyCheckboxPresent(),"Privacy policy " +
                 "checkbox is not presented");
-        softAssert.assertAll();
         //male/female and privacy policy isn't checked
-        softAssert.assertTrue(!loginPage.isSexMaleChecked(),"Male mustn't be checked");
-        softAssert.assertTrue(!loginPage.isSexFemaleChecked(),"Female mustn't be checked");
-        softAssert.assertTrue(!loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy mustn't be checked");
-        softAssert.assertAll();
+        softAssert.assertFalse(loginPage.isSexMaleChecked(),"Male mustn't be checked");
+        softAssert.assertFalse(loginPage.isSexFemaleChecked(),"Female mustn't be checked");
+        softAssert.assertFalse(loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy mustn't be checked");
         // type name and password
-        loginPage.typeName("YakubT");
-        loginPage.typePassword("password1234567");
+        loginPage.typeName(R.TESTDATA.get("user_name"));
+        loginPage.typePassword(R.TESTDATA.get("pass"));
         //select sex
         loginPage.selectMaleSex();
         Assert.assertTrue(loginPage.isSexMaleChecked(),"Male isn't checked");
@@ -48,5 +47,6 @@ public class LoginTest implements IAbstractTest, IMobileUtils {
         //click Sign Up btn
         CarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(),"WebViewPage isn't opened");
+        softAssert.assertAll();
     }
 }
