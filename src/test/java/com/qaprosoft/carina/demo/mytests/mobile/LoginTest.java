@@ -51,4 +51,16 @@ public class LoginTest implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(),"WebViewPage isn't opened");
         softAssert.assertAll();
     }
+
+    @Test(description = "verifying sign up button isn't active")
+    @MethodOwner(owner = "YakubT")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
+    public void testSignUpBtnIsNotActive() {
+        WelcomePageBase welcomePageBase = initPage(getDriver(),WelcomePageBase.class);
+        LoginPageBase loginPage = welcomePageBase.clickNextBtn();
+        loginPage.typeName(R.TESTDATA.get("user_name"));
+        loginPage.typePassword(R.TESTDATA.getDecrypted("pass"));
+        loginPage.selectMaleSex();
+        Assert.assertFalse(loginPage.isLoginBtnActive(),"Sign up btn mustn't be active");
+    }
 }
