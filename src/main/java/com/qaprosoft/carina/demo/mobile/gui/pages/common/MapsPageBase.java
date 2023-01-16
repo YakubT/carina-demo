@@ -40,4 +40,6 @@ public abstract class MapsPageBase extends AbstractPage {
 
     public abstract int getZoomOutHeight();
 
+    public abstract boolean isZoomInAboveZoomOutButton();
+
 }

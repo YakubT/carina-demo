@@ -97,4 +97,8 @@ public class MapsPage extends MapsPageBase {
         return getZoomOutSize().height;
     }
 
+    @Override
+    public boolean isZoomInAboveZoomOutButton() {
+        return getZoomInCoordinateY()<getZoomOutCoordinateY();
+    }
 }
