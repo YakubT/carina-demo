@@ -21,6 +21,7 @@ public class MapsPage extends MapsPageBase {
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='Zoom out']")
     private ExtendedWebElement zoomOutBtn;
+    
     public MapsPage(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
