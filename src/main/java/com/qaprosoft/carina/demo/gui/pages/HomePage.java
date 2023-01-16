@@ -18,8 +18,6 @@ package com.qaprosoft.carina.demo.gui.pages;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-import com.zebrunner.carina.utils.Configuration;
-import com.zebrunner.carina.utils.R;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -31,13 +29,16 @@ import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.components.LoginForm;
 import com.qaprosoft.carina.demo.gui.components.FooterMenu;
 import com.qaprosoft.carina.demo.gui.components.WeValuePrivacyAd;
-
+import com.zebrunner.carina.utils.Configuration;
+import com.zebrunner.carina.utils.R;
 
 public class HomePage extends AbstractPage {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @FindBy(id ="header")
     private HeaderMenu headerMenu;
+
     @FindBy(id = "footmenu")
     private FooterMenu footerMenu;
 
@@ -49,9 +50,6 @@ public class HomePage extends AbstractPage {
 
     @FindBy(id = "login-popup2")
     private LoginForm loginForm;
-
-    @FindBy(xpath = "//button[contains(@class, 'lines-button minus')]")
-    private ExtendedWebElement hamburgerMenuButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -69,10 +67,6 @@ public class HomePage extends AbstractPage {
 
     public LoginForm getLoginForm() {
         return loginForm;
-    }
-
-    public void clickHamburgerMenu() {
-        hamburgerMenuButton.click();
     }
 
     public BrandModelsPage selectBrand(String brand) {
