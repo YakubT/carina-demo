@@ -1,5 +1,7 @@
 package com.qaprosoft.carina.demo.mytests.newweb;
 
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 
@@ -12,6 +14,8 @@ import com.qaprosoft.carina.demo.gui.pages.HomePage;
 public class HeaderTest implements IAbstractTest {
 
     @Test(description = "Verifying all header components are presented")
+    @MethodOwner (owner = "YakubT")
+    @TestLabel(name = "feature", value = {"web", "acceptance"})
     public void testHeaderComponentsPresent() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
