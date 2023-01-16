@@ -1,7 +1,5 @@
 package com.qaprosoft.carina.demo.mytests.newweb;
 
-import com.zebrunner.agent.core.annotation.TestLabel;
-import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 
@@ -10,6 +8,8 @@ import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 
 public class HeaderTest implements IAbstractTest {
 
