@@ -20,8 +20,24 @@ public abstract class MapsPageBase extends AbstractPage {
 
     public abstract Point getZoomOutLocation();
 
+    public abstract int getZoomInCoordinateX();
+
+    public abstract int getZoomInCoordinateY();
+
+    public abstract int getZoomOutCoordinateX();
+
+    public abstract int getZoomOutCoordinateY();
+
     public abstract Dimension getZoomInSize();
 
     public abstract Dimension getZoomOutSize();
+
+    public abstract int getZoomInWidth();
+
+    public abstract int getZoomInHeight();
+
+    public abstract int getZoomOutWidth();
+
+    public abstract int getZoomOutHeight();
 
 }

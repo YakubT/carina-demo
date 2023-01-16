@@ -21,7 +21,7 @@ public class MapsPage extends MapsPageBase {
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='Zoom out']")
     private ExtendedWebElement zoomOutBtn;
-    
+
     public MapsPage(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
@@ -49,6 +49,25 @@ public class MapsPage extends MapsPageBase {
     }
 
     @Override
+    public int getZoomInCoordinateX() {
+        return getZoomInLocation().x;
+    }
+
+    @Override
+    public int getZoomInCoordinateY() {
+        return getZoomInLocation().y;
+    }
+
+    @Override
+    public int getZoomOutCoordinateX() {
+        return getZoomOutLocation().x;
+    }
+
+    @Override
+    public int getZoomOutCoordinateY() {
+        return getZoomOutLocation().y;
+    }
+    @Override
     public Dimension getZoomInSize() {
         return zoomInBtn.getSize();
     }
@@ -56,6 +75,26 @@ public class MapsPage extends MapsPageBase {
     @Override
     public Dimension getZoomOutSize() {
         return zoomOutBtn.getSize();
+    }
+
+    @Override
+    public int getZoomInWidth() {
+        return getZoomInSize().width;
+    }
+
+    @Override
+    public int getZoomInHeight() {
+        return getZoomInSize().height;
+    }
+
+    @Override
+    public int getZoomOutWidth() {
+        return getZoomOutSize().width;
+    }
+
+    @Override
+    public int getZoomOutHeight() {
+        return getZoomOutSize().height;
     }
 
 }

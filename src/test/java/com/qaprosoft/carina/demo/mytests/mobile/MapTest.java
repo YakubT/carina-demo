@@ -32,12 +32,8 @@ public class MapTest implements IAbstractTest, IMobileUtils {
         softAssert.assertTrue(mapsPage.isZoomInBtnPresent(),"Zoom in btn isn't presented");
         softAssert.assertTrue(mapsPage.isZoomOutBtnPresent(),"Zoom out btn isn't presented");
         // Zoom in above zoom out
-        double zoomInY, zoomOutY;
-        zoomInY = mapsPage.getZoomInLocation().y;
-        zoomOutY = mapsPage.getZoomOutLocation().y;
-        double heightZoomIn;
-        heightZoomIn = mapsPage.getZoomInSize().height;
-        Assert.assertTrue(zoomInY+heightZoomIn<=zoomOutY,"Zoom in isn't above zoom out");
+        Assert.assertTrue(mapsPage.getZoomInCoordinateY()+mapsPage.getZoomInHeight()
+                <=mapsPage.getZoomOutCoordinateY(),"Zoom in isn't above zoom out");
         softAssert.assertAll();
     }
 }
