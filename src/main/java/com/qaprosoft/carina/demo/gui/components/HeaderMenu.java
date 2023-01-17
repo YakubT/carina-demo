@@ -12,11 +12,11 @@ import com.qaprosoft.carina.demo.gui.pages.SignUpPage;
 
 public class HeaderMenu extends AbstractUIObject {
 
-    @FindBy (id = "logo")
+    @FindBy(id = "logo")
     private ExtendedWebElement logo;
 
-    @FindBy (id = "topsearch")
-    private  ExtendedWebElement searchPanel;
+    @FindBy(id = "topsearch")
+    private ExtendedWebElement searchPanel;
 
     @FindBy(xpath = "//button[contains(@class, 'lines-button minus')]")
     private ExtendedWebElement hamburgerMenuButton;
@@ -27,7 +27,9 @@ public class HeaderMenu extends AbstractUIObject {
     @FindBy(xpath = "//div[@id='social-connect']//i[contains(@class,'%s')]")
     private ExtendedWebElement headerIcon;
 
-    public  HeaderMenu(WebDriver driver, SearchContext searchContext) {super(driver,searchContext);}
+    public HeaderMenu(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
+    }
 
     public void clickHeaderMenuButton(HeaderButtonLink headerButtonLink) {
         headerMenuButton.format(headerButtonLink.getValue()).click();
@@ -42,15 +44,15 @@ public class HeaderMenu extends AbstractUIObject {
     }
 
     public boolean isSearchPanelPresent() {
-        return  searchPanel.isElementPresent();
+        return searchPanel.isElementPresent();
     }
 
     public boolean isLogoPresent() {
-        return  logo.isElementPresent();
+        return logo.isElementPresent();
     }
 
     public boolean isHamburgerMenuButtonPresent() {
-        return  hamburgerMenuButton.isElementPresent();
+        return hamburgerMenuButton.isElementPresent();
     }
 
     public void clickHeaderMenuIcon(HeaderIconLink headerIconLink) {

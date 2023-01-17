@@ -36,7 +36,7 @@ public class HomePage extends AbstractPage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    @FindBy(id ="header")
+    @FindBy(id = "header")
     private HeaderMenu headerMenu;
 
     @FindBy(id = "footmenu")
@@ -81,9 +81,9 @@ public class HomePage extends AbstractPage {
         }
         throw new RuntimeException("Unable to open brand: " + brand);
     }
-    
+
     public WeValuePrivacyAd getWeValuePrivacyAd() {
-    	return new WeValuePrivacyAd(driver);
+        return new WeValuePrivacyAd(driver);
     }
 
 }

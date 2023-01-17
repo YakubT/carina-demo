@@ -6,7 +6,7 @@ public enum HeaderIconLink {
 
     YOUTUBE("youtube"),
 
-    INSTAGRAM ("instagram"),
+    INSTAGRAM("instagram"),
 
     RSS("rss"),
 
@@ -21,7 +21,7 @@ public enum HeaderIconLink {
 
     private String value;
 
-    HeaderIconLink(String value){
+    HeaderIconLink(String value) {
         this.value = value;
     }
 
