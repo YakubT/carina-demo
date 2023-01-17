@@ -18,23 +18,23 @@ public enum FooterButtonLink {
 
     YOUTUBE("Youtube"),
 
-    FACEBOOK ("Facebook"),
+    FACEBOOK("Facebook"),
 
-    TWITTER ("Twitter"),
+    TWITTER("Twitter"),
 
-    INSTAGRAM ("Instagram"),
+    INSTAGRAM("Instagram"),
 
-    GSMARENACOM ("GSMArena.com"),
+    GSMARENACOM("GSMArena.com"),
 
     MOBILE_VERSION("Mobile version"),
 
-    ANDROID_APP ("Android app"),
+    ANDROID_APP("Android app"),
 
-    TOOLS ("Tools"),
+    TOOLS("Tools"),
 
-    CONTACT_US ("Contact us"),
+    CONTACT_US("Contact us"),
 
-    MERCH_STORE ("Merch store"),
+    MERCH_STORE("Merch store"),
 
     PRIVACY("Privacy"),
 

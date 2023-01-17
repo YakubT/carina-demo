@@ -2,26 +2,26 @@ package com.qaprosoft.carina.demo.gui.enums;
 
 public enum HeaderIconLink {
 
-    TIPS("head-icon icon-tip-us icomoon-liga"),
+    TIPS("tip-us"),
 
-    YOUTUBE("head-icon icon-soc-youtube icomoon-liga"),
+    YOUTUBE("youtube"),
 
-    INSTAGRAM ("head-icon icon-instagram icomoon-liga"),
+    INSTAGRAM("instagram"),
 
-    RSS("head-icon icon-soc-rss2 icomoon-liga"),
+    RSS("rss"),
 
-    EV("head-icon icon-specs-car icomoon-liga"),
+    EV("car"),
 
-    MERCH("head-icon icon-cart icomoon-liga"),
+    MERCH("cart"),
 
-    LOG_IN("login-icon"),
+    LOG_IN("login"),
 
-    SIGN_UP("signup-icon no-margin-right");
+    SIGN_UP("user-plus");
 
 
     private String value;
 
-    HeaderIconLink(String value){
+    HeaderIconLink(String value) {
         this.value = value;
     }
 
