@@ -21,7 +21,7 @@ public class HeaderTest implements IAbstractTest {
         homePage.open();
         HeaderMenu headerMenu = homePage.getHeaderMenu();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(headerMenu.isHamburgerMenuButtonPresent(), "Hamburger menu btn isn't presented");
+        softAssert.assertTrue(headerMenu.isBurgerMenuPresent(), "Hamburger menu btn isn't presented");
         softAssert.assertTrue(headerMenu.isSearchPanelPresent(), "Search panel isn't presented");
         softAssert.assertTrue(headerMenu.isLogoPresent(), "Logo isn't presented");
         for (HeaderIconLink headerIconLink : HeaderIconLink.values()) {

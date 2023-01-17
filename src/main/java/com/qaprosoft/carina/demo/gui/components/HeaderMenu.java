@@ -51,7 +51,7 @@ public class HeaderMenu extends AbstractUIObject {
         return logo.isElementPresent();
     }
 
-    public boolean isHamburgerMenuButtonPresent() {
+    public boolean isBurgerMenuPresent() {
         return hamburgerMenuButton.isElementPresent();
     }
 
@@ -59,7 +59,7 @@ public class HeaderMenu extends AbstractUIObject {
         headerIcon.format(headerIconLink.getValue()).click();
     }
 
-    public void clickHamburgerMenu() {
+    public void clickBurgerMenu() {
         hamburgerMenuButton.click();
     }
 
