@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.mytests.newweb;
 
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,7 @@ public class HeaderTest implements IAbstractTest {
     public void testHeaderComponentsPresent() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
         HeaderMenu headerMenu = homePage.getHeaderMenu();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(headerMenu.isBurgerMenuPresent(), "Hamburger menu btn isn't presented");
