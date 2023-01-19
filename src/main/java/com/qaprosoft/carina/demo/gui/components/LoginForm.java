@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.models.User;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
 
 public class LoginForm extends AbstractUIObject {
@@ -38,9 +39,9 @@ public class LoginForm extends AbstractUIObject {
         passwordTextBox.type(s);
     }
 
-    public LoginPage login(String email, String password) {
-        writeToLoginTextBox(email);
-        writeToPasswordTextBox(password);
+    public LoginPage login(User user) {
+        writeToLoginTextBox(user.getEmail());
+        writeToPasswordTextBox(user.getPassword());
         return clickLoginButton();
     }
 
