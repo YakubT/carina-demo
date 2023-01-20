@@ -7,27 +7,29 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.demo.gui.models.User;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
-
 
 public class LoginForm extends AbstractUIObject {
 
-    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'email']")
+    @FindBy(id = "email")
     private ExtendedWebElement loginTextBox;
 
-    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'upass']")
+    @FindBy(id = "upass")
     private ExtendedWebElement passwordTextBox;
 
-    @FindBy (xpath = "//*[@id = 'login-popup2']/form/input[@id = 'nick-submit']")
+    @FindBy(id = "nick-submit")
     private ExtendedWebElement loginButton;
 
-    @FindBy (xpath = "//*[@id = 'login-popup2']/form/p[text() = 'Login']")
+    @FindBy(xpath = "//p[text() = 'Login']")
     private ExtendedWebElement loginText;
 
-    @FindBy (xpath = "//*[@id = 'login-popup2']/a[@class = 'forgot']")
+    @FindBy(xpath = "//a[@class = 'forgot']")
     private ExtendedWebElement forgotPasswordButton;
 
-    public  LoginForm(WebDriver driver, SearchContext searchContext) {super(driver, searchContext);}
+    public LoginForm(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
+    }
 
     public void writeToLoginTextBox(String s) {
         loginTextBox.type(s);
@@ -35,6 +37,12 @@ public class LoginForm extends AbstractUIObject {
 
     public void writeToPasswordTextBox(String s) {
         passwordTextBox.type(s);
+    }
+
+    public LoginPage login(User user) {
+        writeToLoginTextBox(user.getEmail());
+        writeToPasswordTextBox(user.getPassword());
+        return clickLoginButton();
     }
 
     public LoginPage clickLoginButton() {
@@ -54,11 +62,14 @@ public class LoginForm extends AbstractUIObject {
         return loginButton.isElementPresent();
     }
 
-    public boolean isForgotPasswordButtonPresent() {return forgotPasswordButton.isElementPresent();}
+    public boolean isForgotPasswordButtonPresent() {
+        return forgotPasswordButton.isElementPresent();
+    }
 
     public void hoverLoginButton() {
-       loginButton.hover();
+        loginButton.hover();
     }
+
     public Color getLoginButtonColor() {
         return Color.fromString(loginButton.getElement().getCssValue("background-color"));
     }
@@ -70,23 +81,19 @@ public class LoginForm extends AbstractUIObject {
     public boolean isLoginTextBoxTypeAble() {
         try {
             loginTextBox.type("text");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return false;
         }
-        return  true;
+        return true;
     }
 
     public boolean isPasswordTextBoxTypeAble() {
         try {
             passwordTextBox.type("text");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return false;
         }
-        return  true;
+        return true;
     }
 
     public boolean isForgotPasswordButtonClickable() {
