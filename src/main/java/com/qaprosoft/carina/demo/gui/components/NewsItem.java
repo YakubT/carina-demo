@@ -15,6 +15,7 @@
  */
 package com.qaprosoft.carina.demo.gui.components;
 
+import com.qaprosoft.carina.demo.gui.pages.ArticlePage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -24,14 +25,19 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class NewsItem extends AbstractUIObject {
 
-    @FindBy(xpath="./a")
+    @FindBy(xpath = "./a")
     public ExtendedWebElement titleLink;
-    
+
     public NewsItem(WebDriver driver, SearchContext sc) {
         super(driver, sc);
     }
-    
+
     public String readTitle() {
         return titleLink.getElement().getText();
+    }
+
+    public ArticlePage openArticlePage() {
+        titleLink.click();
+        return new ArticlePage(driver);
     }
 }
