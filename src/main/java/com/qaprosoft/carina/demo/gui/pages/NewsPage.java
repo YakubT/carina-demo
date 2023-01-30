@@ -25,25 +25,28 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.components.NewsItem;
 
 public class NewsPage extends AbstractPage {
-    
-    @FindBy(className="searchFor")
+
+    @FindBy(className = "searchFor")
     private ExtendedWebElement searchTextField;
-    
-    @FindBy(xpath="//input[@value='Search']")
+
+    @FindBy(xpath = "//input[@value='Search']")
     private ExtendedWebElement searchButton;
-    
-    @FindBy(xpath="//div[@class='news-item']")
+
+    @FindBy(xpath = "//div[@class='news-item']")
     private List<NewsItem> news;
-    
+
     public NewsPage(WebDriver driver) {
         super(driver);
         setPageURL("/news.php3");
     }
-    
+
     public List<NewsItem> searchNews(String q) {
         searchTextField.type(q);
         searchButton.click();
         return news;
     }
-    
+
+    public NewsItem getArticleByPos(int pos) {
+        return news.get(pos);
+    }
 }
