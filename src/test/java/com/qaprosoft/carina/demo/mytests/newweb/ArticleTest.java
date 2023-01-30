@@ -20,7 +20,6 @@ import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.R;
 
-
 public class ArticleTest implements IAbstractTest {
 
     private static final Logger LOGGER = LogManager.getLogger(ArticleTest.class);
@@ -54,20 +53,19 @@ public class ArticleTest implements IAbstractTest {
         softAssert.assertTrue(newsPage.isPageOpened(), "News page is not opened");
         String searchText = R.TESTDATA.get("search_text");
         newsPage.searchNews(searchText);
-        softAssert.assertEquals(newsPage.getTitleText(),"Results for \""+searchText+"\"",
+        softAssert.assertEquals(newsPage.getTitleText(), "Results for \"" + searchText + "\"",
                 "Title text is incorrect");
         int currentPageNumber = 1;
         boolean f = true;
         while (f) {
             List<NewsItem> newsItemList = newsPage.getArticles();
             softAssert.assertTrue(newsItemList.stream().allMatch(newsItem -> newsItem.readTitle().contains(searchText)),
-                    "Not all articles contains '" + searchText + "' in the page with number "+
-                           currentPageNumber);
+                    "Not all articles contains '" + searchText + "' in the page with number " +
+                            currentPageNumber);
             currentPageNumber++;
             if (!newsPage.isPageButtonPresent(currentPageNumber)) {
                 f = false;
-            }
-            else {
+            } else {
                 newsPage.clickPageButton(currentPageNumber);
             }
         }
