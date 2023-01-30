@@ -10,6 +10,7 @@ import com.qaprosoft.carina.demo.gui.pages.ArticlePage;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.NewsPage;
 import com.qaprosoft.carina.demo.gui.services.LoginService;
+import com.qaprosoft.carina.demo.gui.services.UserService;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 
@@ -19,12 +20,8 @@ public class ArticleTest implements IAbstractTest {
     @MethodOwner(owner = "YakubT")
     @TestLabel(name = "feature", value = {"web", "acceptance"})
     public void testArticleName() {
-        HomePage homePage = new HomePage(getDriver());
-        homePage.open();
-        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
         LoginService loginService = new LoginService(getDriver());
-        loginService.login();
-        Assert.assertTrue(homePage.isPageOpened(), "Log in is not successful");
+        HomePage homePage = loginService.login(new UserService().getUser());
         FooterMenu footerMenu = homePage.getFooterMenu();
         NewsPage newsPage = footerMenu.openNewsPage();
         Assert.assertTrue(newsPage.isPageOpened(), "News page is not opened");
