@@ -26,6 +26,9 @@ import com.qaprosoft.carina.demo.gui.components.NewsItem;
 
 public class NewsPage extends AbstractPage {
 
+    @FindBy(xpath = "//h1[contains(text(),'Results')]")
+    private ExtendedWebElement title;
+
     @FindBy(className = "searchFor")
     private ExtendedWebElement searchTextField;
 
@@ -34,6 +37,9 @@ public class NewsPage extends AbstractPage {
 
     @FindBy(xpath = "//div[@class='news-item']")
     private List<NewsItem> news;
+
+    @FindBy(xpath = "//div[contains(@class,'nav-pages')]/a[text() = '%s']")
+    private ExtendedWebElement pageButton;
 
     public NewsPage(WebDriver driver) {
         super(driver);
@@ -48,5 +54,21 @@ public class NewsPage extends AbstractPage {
 
     public NewsItem getArticleByPos(int pos) {
         return news.get(pos);
+    }
+
+    public String getTitleText() {
+        return title.getText();
+    }
+
+    public boolean isPageButtonPresent(int number) {
+        return pageButton.format(String.valueOf(number)).isElementPresent();
+    }
+
+    public void clickPageButton(int number) {
+        pageButton.format(String.valueOf(number)).click();
+    }
+
+    public List<NewsItem> getArticles() {
+        return news;
     }
 }

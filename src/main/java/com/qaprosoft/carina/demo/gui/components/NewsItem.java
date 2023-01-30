@@ -40,4 +40,8 @@ public class NewsItem extends AbstractUIObject {
         titleLink.click();
         return new ArticlePage(driver);
     }
+
+    public void scrollToArticle() {
+        titleLink.scrollTo();
+    }
 }
