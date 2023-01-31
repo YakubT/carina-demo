@@ -45,14 +45,14 @@ public class ArticleTest implements IAbstractTest {
     @Test(description = "task: verify Searching process")
     @MethodOwner(owner = "YakubT")
     public void testSearching() {
-        SoftAssert softAssert = new SoftAssert();
         LoginService loginService = new LoginService(getDriver());
         HomePage homePage = loginService.login(new UserService().getUser());
         FooterMenu footerMenu = homePage.getFooterMenu();
         NewsPage newsPage = footerMenu.openNewsPage();
-        softAssert.assertTrue(newsPage.isPageOpened(), "News page is not opened");
+        Assert.assertTrue(newsPage.isPageOpened(), "News page is not opened");
         String searchText = R.TESTDATA.get("search_text");
         newsPage.searchNews(searchText);
+        SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(newsPage.getTitleText(), "Results for \"" + searchText + "\"",
                 "Title text is incorrect");
         int currentPageNumber = 1;
