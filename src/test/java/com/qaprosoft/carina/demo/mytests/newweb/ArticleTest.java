@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,6 @@ import com.qaprosoft.carina.demo.gui.services.LoginService;
 import com.qaprosoft.carina.demo.gui.services.UserService;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
-import com.zebrunner.carina.utils.R;
 
 public class ArticleTest implements IAbstractTest {
 
@@ -42,15 +42,14 @@ public class ArticleTest implements IAbstractTest {
                 "Article name from News page and on the article page are not the same");
     }
 
-    @Test(description = "task: verify Searching process")
+    @Test(description = "task: verify Searching process", dataProvider = "searchParameter")
     @MethodOwner(owner = "YakubT")
-    public void testSearching() {
+    public void testSearching(String searchText) {
         LoginService loginService = new LoginService(getDriver());
         HomePage homePage = loginService.login(new UserService().getUser());
         FooterMenu footerMenu = homePage.getFooterMenu();
         NewsPage newsPage = footerMenu.openNewsPage();
         Assert.assertTrue(newsPage.isPageOpened(), "News page is not opened");
-        String searchText = R.TESTDATA.get("search_text");
         newsPage.searchNews(searchText);
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(newsPage.getTitleText(), "Results for \"" + searchText + "\"",
@@ -71,4 +70,10 @@ public class ArticleTest implements IAbstractTest {
         }
         softAssert.assertAll();
     }
+
+    @DataProvider(name = "searchParameter")
+    public Object[][] dataProviderSearch() {
+        return new Object[][]{{"iPhone"}};
+    }
+
 }
