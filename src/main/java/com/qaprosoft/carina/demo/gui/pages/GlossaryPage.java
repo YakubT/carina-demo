@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.gui.pages;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -28,5 +29,23 @@ public class GlossaryPage extends AbstractPage {
 
     public List<GlossaryParagraph> getGlossaryParagraphs() {
         return glossaryParagraphs;
+    }
+
+    public boolean isGlossaryParagraphSizeMatchesListSize() {
+        int widthEtalon = headers.get(0).getSize().width;
+        return glossaryParagraphs.stream().allMatch(glossaryParagraph -> glossaryParagraph.getWidth() == widthEtalon) &&
+                headers.stream().allMatch(header -> header.getSize().width == widthEtalon);
+    }
+
+    public boolean verifyGlossaryParagraphMatchesText() {
+        for (int i = 0; i < headers.size(); i++) {
+            String regex = "^[" + headers.get(i).getText() + "]";
+            Pattern pattern = Pattern.compile(regex);
+            List<ExtendedWebElement> paragraphLinks = glossaryParagraphs.get(i).getLinks();
+            if (!paragraphLinks.stream().allMatch(paragraphLink -> pattern.matcher(paragraphLink.getText()).matches())) {
+                return false;
+            }
+        }
+        return true;
     }
 }
