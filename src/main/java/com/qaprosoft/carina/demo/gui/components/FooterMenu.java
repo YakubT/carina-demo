@@ -16,6 +16,7 @@
 package com.qaprosoft.carina.demo.gui.components;
 
 
+import com.qaprosoft.carina.demo.gui.pages.GlossaryPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +35,7 @@ public class FooterMenu extends AbstractUIObject {
 
     @FindBy(xpath = "//div[@class='footer-inner']//a[contains(text(),'Compare')]")
     private ExtendedWebElement compareLink;
-    
+
     @FindBy(linkText = "News")
     private ExtendedWebElement newsLink;
 
@@ -53,10 +54,15 @@ public class FooterMenu extends AbstractUIObject {
         compareLink.click();
         return new CompareModelsPage(driver);
     }
-    
+
     public NewsPage openNewsPage() {
         newsLink.click();
         return new NewsPage(driver);
+    }
+
+    public GlossaryPage openGlossaryPage() {
+        clickFooterMenuButton(FooterButtonLink.Glossary);
+        return new GlossaryPage(driver);
     }
 
     public boolean isFooterMenuButtonPresent (FooterButtonLink footerButtonLink) {
