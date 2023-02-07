@@ -3,6 +3,8 @@ package com.qaprosoft.carina.demo.gui.pages;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -11,6 +13,8 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.components.GlossaryParagraph;
 
 public class GlossaryPage extends AbstractPage {
+
+    private Logger LOGGER = LogManager.getLogger(GlossaryPage.class);
 
     @FindBy(xpath = "//div[@class = 'st-text']/h3")
     private List<ExtendedWebElement> headers;
@@ -42,9 +46,15 @@ public class GlossaryPage extends AbstractPage {
             String regex = "^[" + headers.get(i).getText() + "]";
             Pattern pattern = Pattern.compile(regex);
             List<ExtendedWebElement> paragraphLinks = glossaryParagraphs.get(i).getLinks();
-            if (!paragraphLinks.stream().allMatch(paragraphLink -> pattern.matcher(paragraphLink.getText()).matches())) {
-                return false;
+            for (ExtendedWebElement link:paragraphLinks) {
+                if (!pattern.matcher(link.getText()).matches()) {
+                    LOGGER.error("Glossary paragraph header: [" + headers.get(i).getText()
+                            + "] does not matches first number or letter [" + link.getText().charAt(0) + "]");
+                    return false;
+                }
             }
+            LOGGER.info("Glossary paragraph header: [" + headers.get(i).getText() + "] matches first " +
+                    "letter or number");
         }
         return true;
     }
