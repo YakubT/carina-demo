@@ -1,7 +1,6 @@
 package com.qaprosoft.carina.demo.gui.pages;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,19 +34,19 @@ public class GlossaryPage extends AbstractPage {
         return glossaryParagraphs;
     }
 
-
     public boolean isParagraphsTextSorted() {
-        for (GlossaryParagraph glossaryParagraph : glossaryParagraphs) {
+        for (int i = 0; i < glossaryParagraphs.size(); i++) {
+            GlossaryParagraph glossaryParagraph = glossaryParagraphs.get(i);
             List<ExtendedWebElement> links = glossaryParagraph.getLinks();
-            for (int i=1;i<links.size();i++) {
-                String currentLowerCase = links.get(i).getText().toLowerCase();
-                String prevLowerCase = links.get(i-1).getText().toLowerCase();
-                if (currentLowerCase.compareTo(prevLowerCase)<0) {
-                    LOGGER.info("Paragraph["+glossaryParagraph.getTitle()+ "] doesn't consist of sorted elements");
+            for (int j = 1; j < links.size(); j++) {
+                String currentLowerCase = links.get(j).getText().toLowerCase();
+                String prevLowerCase = links.get(j - 1).getText().toLowerCase();
+                if (currentLowerCase.compareTo(prevLowerCase) < 0) {
+                    LOGGER.info("Paragraph[" + headers.get(i).getText() + "] doesn't consist of sorted elements");
                     return false;
                 }
             }
-            LOGGER.info("Paragraph["+glossaryParagraph.getTitle()+ "] consists of sorted elements");
+            LOGGER.info("Paragraph[" + headers.get(i).getText() + "] consists of sorted elements");
         }
         return true;
     }
