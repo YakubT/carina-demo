@@ -13,7 +13,7 @@ public class GlossaryParagraph extends AbstractUIObject {
 
     @FindBy(xpath = "/a")
     private List<ExtendedWebElement> links;
-
+    
     public GlossaryParagraph(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
