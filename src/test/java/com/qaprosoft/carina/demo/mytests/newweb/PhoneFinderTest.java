@@ -8,7 +8,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import com.qaprosoft.carina.demo.gui.pages.PhoneFinderPage;
+import com.qaprosoft.carina.demo.gui.pages.PhoneFinderSearchPage;
 
 public class PhoneFinderTest implements IAbstractTest {
 
@@ -19,7 +19,7 @@ public class PhoneFinderTest implements IAbstractTest {
         HeaderMenu headerMenu = homePage.getHeaderMenu();
         Assert.assertTrue(headerMenu.isHeaderMenuButtonPresent(HeaderButtonLink.PHONE_FINDER),
                 "Phone finder doesn't exists");
-        PhoneFinderPage phoneFinderPage = (PhoneFinderPage) headerMenu.clickHeaderMenuButton(HeaderButtonLink.PHONE_FINDER);
+        PhoneFinderSearchPage phoneFinderPage = (PhoneFinderSearchPage) headerMenu.clickHeaderMenuButton(HeaderButtonLink.PHONE_FINDER);
         phoneFinderPage.clickBrandButton();
         phoneFinderPage.chooseBrandDropDownItem("Xiaomi");
         Assert.assertTrue(phoneFinderPage.isShowButtonPresent(), "Show button isn't present");

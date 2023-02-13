@@ -9,7 +9,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrat
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 
-public class PhoneFinderPage extends AbstractPage {
+public class PhoneFinderSearchPage extends AbstractPage {
 
     @FindBy(xpath = "//button/span[text()='Brand:']")
     private ExtendedWebElement brandButton;
@@ -20,10 +20,10 @@ public class PhoneFinderPage extends AbstractPage {
     @FindBy(xpath = "//span[@class='pf-border']//input[@value='Show']/../span")
     private ExtendedWebElement showButton;
 
-    public PhoneFinderPage(WebDriver driver) {
+    public PhoneFinderSearchPage(WebDriver driver) {
         super(driver);
-        setPageOpeningStrategy(PageOpeningStrategy.BY_URL);
-        setPageURL("/search.php3");
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(brandButton);
     }
 
     public void clickBrandButton() {

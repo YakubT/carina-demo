@@ -6,14 +6,14 @@ import org.openqa.selenium.WebDriver;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.pages.NewsPage;
-import com.qaprosoft.carina.demo.gui.pages.PhoneFinderPage;
+import com.qaprosoft.carina.demo.gui.pages.PhoneFinderSearchPage;
 
 public class HeaderPageFactory {
 
     public AbstractPage getPageByHeaderButton(HeaderButtonLink headerButtonLink, WebDriver driver) {
         switch (headerButtonLink.getValue()) {
             case "Phone Finder":
-                return new PhoneFinderPage(driver);
+                return new PhoneFinderSearchPage(driver);
             case "News":
                 return new NewsPage(driver);
             default:
