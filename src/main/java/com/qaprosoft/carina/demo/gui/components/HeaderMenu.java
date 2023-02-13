@@ -35,7 +35,7 @@ public class HeaderMenu extends AbstractUIObject {
 
     public AbstractPage clickHeaderMenuButton(HeaderButtonLink headerButtonLink) {
         headerMenuButton.format(headerButtonLink.getValue()).click();
-        return new HeaderPageFactory(headerButtonLink,driver);
+        return new HeaderPageFactory().getPageByHeaderButton(headerButtonLink, getDriver());
     }
 
     public boolean isHeaderMenuButtonPresent(HeaderButtonLink headerButtonLink) {
