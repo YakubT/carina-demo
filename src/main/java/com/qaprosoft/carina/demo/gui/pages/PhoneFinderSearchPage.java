@@ -17,8 +17,9 @@ public class PhoneFinderSearchPage extends AbstractPage {
     @FindBy(xpath = "//ul[contains(@class,'dropdown-menu inner')]//span[text()='%s']")
     private ExtendedWebElement brandDropDownItem;
 
-    @FindBy(xpath = "//span[@class='pf-border']//input[@value='Show']/../span")
+    @FindBy(xpath = "//span[@class='pf-border']//input[@value='Show']//..")
     private ExtendedWebElement showButton;
+
 
     public PhoneFinderSearchPage(WebDriver driver) {
         super(driver);
@@ -38,8 +39,9 @@ public class PhoneFinderSearchPage extends AbstractPage {
         return showButton.isElementPresent();
     }
 
-    public void clickShowButton() {
+    public PhoneFinderResultPage clickShowButton() {
         showButton.click();
+        return new PhoneFinderResultPage(getDriver());
     }
 
     public String getShowButtonText() {
