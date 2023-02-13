@@ -20,4 +20,14 @@ public class GlossaryTest implements IAbstractTest {
         Assert.assertTrue(glossaryPage.isGlossaryParagraphSizeMatchesListSize(), "Paragraph doesn't match list size");
         Assert.assertTrue(glossaryPage.verifyGlossaryParagraphMatchesText(), "Titles are not sorted by alphabet");
     }
+    
+    @Test(description = "Verify Glossary paragraph text by alphabet")
+    @MethodOwner(owner = "YakubT")
+    public void testIsSortedInParagraph() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        GlossaryPage glossaryPage = homePage.getFooterMenu().openGlossaryPage();
+        Assert.assertTrue(glossaryPage.isPageOpened(), "Glossary is not opened");
+        Assert.assertTrue(glossaryPage.isParagraphsTextSorted(),"Paragraph text is not sorted");
+    }
 }

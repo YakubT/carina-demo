@@ -35,6 +35,23 @@ public class GlossaryPage extends AbstractPage {
         return glossaryParagraphs;
     }
 
+    public boolean isParagraphsTextSorted() {
+        for (int i = 0; i < glossaryParagraphs.size(); i++) {
+            GlossaryParagraph glossaryParagraph = glossaryParagraphs.get(i);
+            List<ExtendedWebElement> links = glossaryParagraph.getLinks();
+            for (int j = 1; j < links.size(); j++) {
+                String currentLowerCase = links.get(j).getText().toLowerCase();
+                String prevLowerCase = links.get(j - 1).getText().toLowerCase();
+                if (currentLowerCase.compareTo(prevLowerCase) < 0) {
+                    LOGGER.info("Paragraph[" + headers.get(i).getText() + "] doesn't consist of sorted elements");
+                    return false;
+                }
+            }
+            LOGGER.info("Paragraph[" + headers.get(i).getText() + "] consists of sorted elements");
+        }
+        return true;
+    }
+
     public boolean isGlossaryParagraphSizeMatchesListSize() {
         int widthEtalon = headers.get(0).getSize().width;
         return glossaryParagraphs.stream().allMatch(glossaryParagraph -> glossaryParagraph.getWidth() == widthEtalon) &&
