@@ -1,7 +1,5 @@
 package com.qaprosoft.carina.demo.mytests.newweb;
 
-import com.qaprosoft.carina.demo.gui.models.User;
-import com.qaprosoft.carina.demo.gui.services.UserService;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,8 +7,10 @@ import org.testng.annotations.Test;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.components.LoginForm;
 import com.qaprosoft.carina.demo.gui.enums.HeaderIconLink;
+import com.qaprosoft.carina.demo.gui.models.User;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.LoginPage;
+import com.qaprosoft.carina.demo.gui.services.UserService;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 
 public class LoginTest implements IAbstractTest {
