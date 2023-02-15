@@ -1,10 +1,13 @@
 package com.qaprosoft.carina.demo.mytests.newweb;
 
+import java.util.HashMap;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.CsvDataSourceParameters;
 import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
@@ -13,10 +16,10 @@ import com.qaprosoft.carina.demo.gui.pages.PhoneFinderResultPage;
 
 public class PhoneFinderTest implements IAbstractTest {
 
-    private String brand = "Xiaomi";
-
-    @Test
-    public void testPhoneFindProcess() {
+    @Test(dataProvider = "DataProvider")
+    @CsvDataSourceParameters(path = "csv/search_model_brand.csv", dsUid = "TUID")
+    public void testPhoneFindProcess(HashMap<String, String> args) {
+        String brand = args.get("brandName");
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         HeaderMenu headerMenu = homePage.getHeaderMenu();
