@@ -1,5 +1,7 @@
 package com.qaprosoft.carina.demo.gui.components;
 
+import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.carina.demo.gui.utils.HeaderPageFactory;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -31,8 +33,9 @@ public class HeaderMenu extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public void clickHeaderMenuButton(HeaderButtonLink headerButtonLink) {
+    public AbstractPage clickHeaderMenuButton(HeaderButtonLink headerButtonLink) {
         headerMenuButton.format(headerButtonLink.getValue()).click();
+        return new HeaderPageFactory().getPageByHeaderButton(headerButtonLink, getDriver());
     }
 
     public boolean isHeaderMenuButtonPresent(HeaderButtonLink headerButtonLink) {
