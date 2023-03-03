@@ -7,10 +7,11 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.streams.StreamTasksSolver;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 
-public class StreamsTest1 {
+public class StreamsTest1 implements IAbstractTest {
 
     @Test(description = "stream task1 general test")
     @MethodOwner(owner = "YakubT")
