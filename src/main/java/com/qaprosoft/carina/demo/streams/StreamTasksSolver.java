@@ -15,4 +15,7 @@ public class StreamTasksSolver {
                 && string.charAt(string.length() - 1) == c && string.length() > 1).collect(Collectors.toList());
     }
 
+    public static List<Integer> getSortedListOfLengths(List<String> strings) {
+        return strings.stream().map(String::length).sorted().collect(Collectors.toList());
+    }
 }
