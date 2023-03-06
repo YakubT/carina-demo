@@ -18,4 +18,9 @@ public class StreamTasksSolver {
     public static List<Integer> getSortedListOfLengths(List<String> strings) {
         return strings.stream().map(String::length).sorted().collect(Collectors.toList());
     }
+
+    public static List<String> getListFromFirstAndLastLettersOfStrings(List<String> strings) {
+        return strings.stream().map(element->element.charAt(0)+element.substring(element.length()-1)).
+                collect(Collectors.toList());
+    }
 }
