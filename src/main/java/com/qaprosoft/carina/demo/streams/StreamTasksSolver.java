@@ -18,4 +18,9 @@ public class StreamTasksSolver {
     public static List<Integer> getSortedListOfLengths(List<String> strings) {
         return strings.stream().map(String::length).sorted().collect(Collectors.toList());
     }
+
+    public static List<String> getSortedListOfElementsThatHaveFixedLength(int k, List<String> strings) {
+        return strings.stream().filter(string->string.length()==k && '0'<=string.charAt(string.length()-1)
+                && string.charAt(string.length()-1)<='9').sorted().collect(Collectors.toList());
+    }
 }
