@@ -19,8 +19,14 @@ public class StreamTasksSolver {
         return strings.stream().map(String::length).sorted().collect(Collectors.toList());
     }
 
-    public static List<String> getSortedListOfElementsThatHaveFixedLength(int k, List<String> strings) {
-        return strings.stream().filter(string->string.length()==k && '0'<=string.charAt(string.length()-1)
-                && string.charAt(string.length()-1)<='9').sorted().collect(Collectors.toList());
+    public static List<String> getListFromFirstAndLastLettersOfStrings(List<String> strings) {
+        return strings.stream().map(element -> element.charAt(0) + element.substring(element.length() - 1)).
+                collect(Collectors.toList());
     }
+
+    public static List<String> getSortedListOfElementsThatHaveFixedLengthEndingInADigit(int k, List<String> strings) {
+        return strings.stream().filter(string -> string.length() == k && Character.isDigit(string.
+                charAt(string.length() - 1))).sorted().collect(Collectors.toList());
+    }
+
 }
