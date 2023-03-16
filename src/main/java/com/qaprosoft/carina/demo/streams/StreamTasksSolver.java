@@ -23,4 +23,9 @@ public class StreamTasksSolver {
         return strings.stream().map(element->element.charAt(0)+element.substring(element.length()-1)).
                 collect(Collectors.toList());
     }
+
+    public static List<String> getSequenceOfStringRepresentationOfOddAndSort(List<Integer> numbers) {
+        return numbers.stream().filter(number->number%2!=0).map(Object::toString).sorted().
+                collect(Collectors.toList());
+    }
 }
