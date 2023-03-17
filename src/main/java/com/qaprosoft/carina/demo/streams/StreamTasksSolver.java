@@ -20,7 +20,13 @@ public class StreamTasksSolver {
     }
 
     public static List<String> getListFromFirstAndLastLettersOfStrings(List<String> strings) {
-        return strings.stream().map(element->element.charAt(0)+element.substring(element.length()-1)).
+        return strings.stream().map(element -> element.charAt(0) + element.substring(element.length() - 1)).
                 collect(Collectors.toList());
+    }
+
+    public static List<String> getSequenceOfStringsFromRuleOfTask6(List<Integer> numbers, List<String> strings) {
+        return numbers.stream().map(number -> strings.stream().anyMatch(string -> Character.isDigit(string.charAt(0))
+                && string.length() == number) ? strings.stream().filter(string -> Character.isDigit(string.charAt(0))
+                && string.length() == number).findFirst().get() : "Not Found").collect(Collectors.toList());
     }
 }
