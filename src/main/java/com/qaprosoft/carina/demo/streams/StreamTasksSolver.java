@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.streams;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
@@ -24,9 +25,14 @@ public class StreamTasksSolver {
                 collect(Collectors.toList());
     }
 
+    public static List<String> getSequenceOfStringRepresentationOfOddAndSort(List<Integer> numbers) {
+        return numbers.stream().filter(number -> number % 2 != 0).map(Object::toString).sorted().
+                collect(Collectors.toList());
+    }
+
     public static List<String> getSequenceOfStringsFromRuleOfTask6(List<Integer> numbers, List<String> strings) {
-        return numbers.stream().map(number -> strings.stream().anyMatch(string -> Character.isDigit(string.charAt(0))
-                && string.length() == number) ? strings.stream().filter(string -> Character.isDigit(string.charAt(0))
-                && string.length() == number).findFirst().get() : "Not Found").collect(Collectors.toList());
+        return numbers.stream().filter(Objects::nonNull).map(x -> strings.stream().filter(y -> y.length() == x &&
+                        y.length() > 0 && Character.isDigit(y.charAt(0))).findFirst().orElse("Not Found")).
+                collect(Collectors.toList());
     }
 }
