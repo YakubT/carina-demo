@@ -24,6 +24,11 @@ public class StreamTasksSolver {
                 collect(Collectors.toList());
     }
 
+    public static List<String> getSequenceOfStringRepresentationOfOddAndSort(List<Integer> numbers) {
+        return numbers.stream().filter(number -> number % 2 != 0).map(Object::toString).sorted().
+                collect(Collectors.toList());
+    }
+
     public static List<String> getSortedListOfElementsThatHaveFixedLengthEndingInADigit(int k, List<String> strings) {
         return strings.stream().filter(string -> string.length() == k && Character.isDigit(string.
                 charAt(string.length() - 1))).sorted().collect(Collectors.toList());
