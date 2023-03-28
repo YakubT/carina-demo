@@ -35,4 +35,10 @@ public class StreamTasksSolver {
                         y.length() > 0 && Character.isDigit(y.charAt(0))).findFirst().orElse("Not Found")).
                 collect(Collectors.toList());
     }
+
+    public static List<String> getSortedListOfElementsThatHaveFixedLengthEndingInADigit(int k, List<String> strings) {
+        return strings.stream().filter(string -> string.length() == k && Character.isDigit(string.
+                charAt(string.length() - 1))).sorted().collect(Collectors.toList());
+    }
+
 }
