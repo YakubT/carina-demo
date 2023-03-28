@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.streams;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
@@ -28,6 +29,15 @@ public class StreamTasksSolver {
     public static List<String> getSequenceOfStringRepresentationOfOddAndSort(List<Integer> numbers) {
         return numbers.stream().filter(number -> number % 2 != 0).map(Object::toString).sorted().
                 collect(Collectors.toList());
+    }
+
+    public static List<Integer> getUnionOfTwoSetsFromTask8(int d, int k, List<Integer> numbers) {
+        return new TreeSet<Integer>() {
+            {
+                addAll(numbers.subList(k, numbers.size()));
+                addAll(numbers.stream().filter(el -> el > d).collect(Collectors.toList()));
+            }
+        }.stream().sorted((el1, el2) -> -Integer.compare(el1, el2)).collect(Collectors.toList());
     }
 
     public static List<String> getSequenceOfStringsFromRuleOfTask6(List<Integer> numbers, List<String> strings) {
