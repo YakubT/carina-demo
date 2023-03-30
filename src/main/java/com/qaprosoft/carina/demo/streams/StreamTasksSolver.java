@@ -51,4 +51,14 @@ public class StreamTasksSolver {
                 charAt(string.length() - 1))).sorted().collect(Collectors.toList());
     }
 
+    public static List<String> getSequenceOfStringWithTotalLengthTask9(List<String> strings) {
+        return strings.stream().map(string -> strings.stream().filter(string2 ->
+                        string2.charAt(0) == string.charAt(0)).mapToInt(String::length).sum() + "-" + string.charAt(0)).
+                distinct().sorted((a, b) -> (Integer.parseInt(a.substring(0, a.indexOf('-')))
+                        > Integer.parseInt(b.substring(0, b.indexOf('-'))) ||
+                        (Integer.parseInt(a.substring(0, a.indexOf('-'))) ==
+                                Integer.parseInt(b.substring(0, b.indexOf('-'))) && a.charAt(a.length() - 1) <
+                                b.charAt(b.length() - 1))) ? -1 : a.equals(b) ? 0 : 1)
+                .collect(Collectors.toList());
+    }
 }
