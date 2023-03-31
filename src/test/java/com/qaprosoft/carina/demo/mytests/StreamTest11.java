@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.qaprosoft.carina.demo.streams.StreamTasksSolver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.demo.streams.StreamTasksSolver;
 import com.qaprosoft.carina.demo.streams.models.Entrant;
 import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
