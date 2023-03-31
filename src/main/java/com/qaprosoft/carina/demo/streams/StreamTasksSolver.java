@@ -5,10 +5,11 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import com.qaprosoft.carina.demo.streams.models.Entrant;
-import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.qaprosoft.carina.demo.streams.models.Entrant;
+import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 
 public class StreamTasksSolver {
 
