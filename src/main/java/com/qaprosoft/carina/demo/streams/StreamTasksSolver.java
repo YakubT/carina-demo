@@ -8,7 +8,9 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qaprosoft.carina.demo.streams.models.Entrant;
 import com.qaprosoft.carina.demo.streams.models.NumberPair;
+import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 
 public class StreamTasksSolver {
 
@@ -77,7 +79,20 @@ public class StreamTasksSolver {
                         numbPair1.getFirstInt() != numberPair2.getFirstInt() ? Integer.compare(
                                 numbPair1.getFirstInt(), numberPair2.getFirstInt()) :
                                 Integer.compare(
-                                        numbPair1.getSecondInt(), numberPair2.getSecondInt())).
+                                        numbPair1.getSecondInt(), numberPair2.getSecondInt())).collect(Collectors.toList());
+    }
+
+    public static List<YearSchoolStat> getDataAboutTheNumberOfDiffSchoolsInTheSameYear(List<Entrant> entrants) {
+        return entrants.stream().
+                map(entrant -> new YearSchoolStat(entrant.getYearOfEntering(),
+                        (int) entrants.stream().filter(innerEntrant -> innerEntrant.getYearOfEntering()
+                                == entrant.getYearOfEntering()).map
+                                (Entrant::getSchoolNumber).distinct().count())).distinct().sorted(
+                        (a, b) -> a.getNumberOfSchools() < b.getNumberOfSchools() ||
+                                (a.getNumberOfSchools() == b.getNumberOfSchools() &&
+                                        a.getYearOfEntering() < b.getYearOfEntering()) ? -1 :
+                                (a.getNumberOfSchools() == b.getNumberOfSchools() &&
+                                        a.getYearOfEntering() == b.getYearOfEntering()) ? 0 : 1).
                 collect(Collectors.toList());
     }
 }
