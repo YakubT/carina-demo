@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qaprosoft.carina.demo.streams.models.NumberPair;
+
 public class StreamTasksSolver {
 
     public static final Logger LOGGER = LogManager.getLogger(StreamTasksSolver.class);
@@ -65,5 +67,17 @@ public class StreamTasksSolver {
     public static List<Character> getSequenceOfCharactersSortedByInitialLengthOfString(List<String> strings) {
         return strings.stream().sorted((a, b) -> -Integer.compare(a.length(), b.length())).
                 map(string -> Character.toUpperCase(string.charAt(string.length() - 1))).collect(Collectors.toList());
+    }
+
+    public static List<NumberPair> getNumberPairsThatEndsOnTheSameDigit(List<Integer> integerList1, List<Integer> integerList2) {
+        return integerList1.stream().map(integer1 -> integerList2.stream().filter(
+                                integer2 -> integer2 % 10 == integer1 % 10).map(el -> new NumberPair(integer1, el)).
+                        collect(Collectors.toList())).flatMap(List::stream)
+                .sorted((numbPair1, numberPair2) ->
+                        numbPair1.getFirstInt() != numberPair2.getFirstInt() ? Integer.compare(
+                                numbPair1.getFirstInt(), numberPair2.getFirstInt()) :
+                                Integer.compare(
+                                        numbPair1.getSecondInt(), numberPair2.getSecondInt())).
+                collect(Collectors.toList());
     }
 }
