@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qaprosoft.carina.demo.streams.models.Entrant;
+import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
+
 public class StreamTasksSolver {
 
     public static final Logger LOGGER = LogManager.getLogger(StreamTasksSolver.class);
@@ -65,5 +68,19 @@ public class StreamTasksSolver {
     public static List<Character> getSequenceOfCharactersSortedByInitialLengthOfString(List<String> strings) {
         return strings.stream().sorted((a, b) -> -Integer.compare(a.length(), b.length())).
                 map(string -> Character.toUpperCase(string.charAt(string.length() - 1))).collect(Collectors.toList());
+    }
+
+    public static List<YearSchoolStat> getDataAboutTheNumberOfDiffSchoolsInTheSameYear(List<Entrant> entrants) {
+        return entrants.stream().
+                map(entrant -> new YearSchoolStat(entrant.getYearOfEntering(),
+                        (int) entrants.stream().filter(innerEntrant -> innerEntrant.getYearOfEntering()
+                                == entrant.getYearOfEntering()).map
+                                (Entrant::getSchoolNumber).distinct().count())).distinct().sorted(
+                        (a, b) -> a.getNumberOfSchools() < b.getNumberOfSchools() ||
+                                (a.getNumberOfSchools() == b.getNumberOfSchools() &&
+                                        a.getYearOfEntering() < b.getYearOfEntering()) ? -1 :
+                                (a.getNumberOfSchools() == b.getNumberOfSchools() &&
+                                        a.getYearOfEntering() == b.getYearOfEntering()) ? 0 : 1).
+                collect(Collectors.toList());
     }
 }
