@@ -95,4 +95,13 @@ public class StreamTasksSolver {
                                         a.getYearOfEntering() == b.getYearOfEntering()) ? 0 : 1).
                 collect(Collectors.toList());
     }
+
+    public static List<YearSchoolStat> getDataAboutTheNumberOfDiffSchoolsInTheSameYearFromList(List<Integer> yearList,
+                                                                                               List<Entrant> entrants) {
+        return yearList.stream().map(year -> new YearSchoolStat(year, (int) entrants.stream().filter(
+                        entrant -> entrant.getYearOfEntering() == year).map(Entrant::getSchoolNumber).distinct().count()))
+                .sorted((a, b) -> a.getNumberOfSchools() == b.getNumberOfSchools() ? Integer.compare
+                        (a.getYearOfEntering(), b.getYearOfEntering()) : Integer.compare(a.getNumberOfSchools(), b.getNumberOfSchools()))
+                .collect(Collectors.toList());
+    }
 }
