@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.streams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -28,6 +29,20 @@ public class StreamTasksSolver {
     public static List<String> getListFromFirstAndLastLettersOfStrings(List<String> strings) {
         return strings.stream().map(element -> element.charAt(0) + element.substring(element.length() - 1)).
                 collect(Collectors.toList());
+    }
+
+    public static List<Integer> getSymmetricalDifferenceLastWithoutKAndEven(int k, List<Integer> integerList) {
+        //res = (A/B) U (B/A)
+        return new ArrayList<Integer>() {
+            {
+                addAll(integerList.subList(k, integerList.size()).stream().filter(elSet1 -> (integerList.stream().
+                                filter(elementSet2 -> elementSet2 % 2 == 0)).noneMatch(elementSet2 -> elementSet2.equals(elSet1))).
+                        collect(Collectors.toList()));
+                addAll(integerList.stream().filter(elementSet2 -> elementSet2 % 2 == 0).
+                        filter(elementSet2 -> integerList.subList(k, integerList.size()).
+                                stream().noneMatch(elSet1 -> elSet1.equals(elementSet2))).collect(Collectors.toList()));
+            }
+        }.stream().sorted((el1, el2) -> Integer.compare(el1, el2) * (-1)).collect(Collectors.toList());
     }
 
     public static List<String> getSequenceOfStringRepresentationOfOddAndSort(List<Integer> numbers) {
