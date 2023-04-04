@@ -18,10 +18,8 @@ public class StreamTest13 implements IAbstractTest {
 
     @Test(description = "test not empty list", dataProvider = "dataProvider")
     @MethodOwner(owner = "YakubT")
-    public void testNotEmptyList(List<Integer> years, List<Entrant> entrants,
-                                 List<YearSchoolStat> expectedRes) {
-        Assert.assertEquals(StreamTasksSolver.getDataAboutTheNumberOfDiffSchoolsInTheSameYearFromList(years,
-                entrants), expectedRes);
+    public void testNotEmptyList(List<Integer> years, List<Entrant> entrants, List<YearSchoolStat> expectedRes) {
+        Assert.assertEquals(StreamTasksSolver.getYearSchoolStatFromList(years, entrants), expectedRes);
     }
 
     @DataProvider(name = "dataProvider")
@@ -53,7 +51,7 @@ public class StreamTest13 implements IAbstractTest {
     @Test(description = "test not null result of empty list")
     @MethodOwner(owner = "YakubT")
     public void testEmptyLists() {
-        Assert.assertNotNull(StreamTasksSolver.getDataAboutTheNumberOfDiffSchoolsInTheSameYearFromList(Collections.emptyList(),
+        Assert.assertNotNull(StreamTasksSolver.getYearSchoolStatFromList(Collections.emptyList(),
                 Collections.emptyList()));
     }
 }

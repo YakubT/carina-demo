@@ -96,8 +96,7 @@ public class StreamTasksSolver {
                 collect(Collectors.toList());
     }
 
-    public static List<YearSchoolStat> getDataAboutTheNumberOfDiffSchoolsInTheSameYearFromList(List<Integer> yearList,
-                                                                                               List<Entrant> entrants) {
+    public static List<YearSchoolStat> getYearSchoolStatFromList(List<Integer> yearList, List<Entrant> entrants) {
         return yearList.stream().map(year -> new YearSchoolStat(year, (int) entrants.stream().filter(
                         entrant -> entrant.getYearOfEntering() == year).map(Entrant::getSchoolNumber).distinct().count()))
                 .sorted((a, b) -> a.getNumberOfSchools() == b.getNumberOfSchools() ? Integer.compare
