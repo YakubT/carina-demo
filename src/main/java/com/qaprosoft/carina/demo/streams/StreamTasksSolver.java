@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -11,6 +12,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.qaprosoft.carina.demo.streams.models.Entrant;
 import com.qaprosoft.carina.demo.streams.models.NumberPair;
+import com.qaprosoft.carina.demo.streams.models.MaxDiscountOwner;
+import com.qaprosoft.carina.demo.streams.models.Supplier;
+import com.qaprosoft.carina.demo.streams.models.SupplierDiscount;
 import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 
 public class StreamTasksSolver {
@@ -117,5 +121,15 @@ public class StreamTasksSolver {
                 .sorted((a, b) -> a.getNumberOfSchools() == b.getNumberOfSchools() ? Integer.compare
                         (a.getYearOfEntering(), b.getYearOfEntering()) : Integer.compare(a.getNumberOfSchools(), b.getNumberOfSchools()))
                 .collect(Collectors.toList());
+    }
+
+    public static List<MaxDiscountOwner> getMaxDiscOwners(List<Supplier> supplierList, List<SupplierDiscount> supplierDiscounts) {
+        return supplierDiscounts.stream().filter(disc -> supplierDiscounts.stream().filter(innerDisc ->
+                                innerDisc.getStoreName().equals(disc.getStoreName())).max((a, b) ->
+                                a.getDiscountPercentage() == b.getDiscountPercentage() ? -Integer.compare(a.getCustomerId(),
+                                        b.getCustomerId()) : Integer.compare(a.getDiscountPercentage(), b.getDiscountPercentage()))
+                        .get().equals(disc)).map(disc -> new MaxDiscountOwner(disc.getStoreName(), supplierList.stream().
+                        filter(supplier -> supplier.getCustomerId() == disc.getCustomerId()).findFirst().get()))
+                .sorted(Comparator.comparing(MaxDiscountOwner::getStoreName)).collect(Collectors.toList());
     }
 }
