@@ -14,8 +14,11 @@ import org.apache.logging.log4j.Logger;
 import com.qaprosoft.carina.demo.streams.models.CountryStat;
 import com.qaprosoft.carina.demo.streams.models.Entrant;
 import com.qaprosoft.carina.demo.streams.models.Good;
+import com.qaprosoft.carina.demo.streams.models.MaxDiscountOwner;
 import com.qaprosoft.carina.demo.streams.models.NumberPair;
 import com.qaprosoft.carina.demo.streams.models.StorePrice;
+import com.qaprosoft.carina.demo.streams.models.Supplier;
+import com.qaprosoft.carina.demo.streams.models.SupplierDiscount;
 import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
 
 public class StreamTasksSolver {
@@ -142,5 +145,15 @@ public class StreamTasksSolver {
                                                 min(Comparator.comparing(StorePrice::getPrice)).get().getPrice()
                                         : new BigDecimal(0)))
                 .sorted(Comparator.comparing(CountryStat::getCountryName)).collect(Collectors.toList());
+    }
+
+    public static List<MaxDiscountOwner> getMaxDiscOwners(List<Supplier> supplierList, List<SupplierDiscount> supplierDiscounts) {
+        return supplierDiscounts.stream().filter(disc -> supplierDiscounts.stream().filter(innerDisc ->
+                                innerDisc.getStoreName().equals(disc.getStoreName())).max((a, b) ->
+                                a.getDiscountPercentage() == b.getDiscountPercentage() ? -Integer.compare(a.getCustomerId(),
+                                        b.getCustomerId()) : Integer.compare(a.getDiscountPercentage(), b.getDiscountPercentage()))
+                        .get().equals(disc)).map(disc -> new MaxDiscountOwner(disc.getStoreName(), supplierList.stream().
+                        filter(supplier -> supplier.getCustomerId() == disc.getCustomerId()).findFirst().get()))
+                .sorted(Comparator.comparing(MaxDiscountOwner::getStoreName)).collect(Collectors.toList());
     }
 }
