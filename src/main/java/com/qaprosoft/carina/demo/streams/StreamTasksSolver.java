@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.streams;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -10,9 +11,12 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qaprosoft.carina.demo.streams.models.CountryStat;
 import com.qaprosoft.carina.demo.streams.models.Entrant;
-import com.qaprosoft.carina.demo.streams.models.NumberPair;
+import com.qaprosoft.carina.demo.streams.models.Good;
 import com.qaprosoft.carina.demo.streams.models.MaxDiscountOwner;
+import com.qaprosoft.carina.demo.streams.models.NumberPair;
+import com.qaprosoft.carina.demo.streams.models.StorePrice;
 import com.qaprosoft.carina.demo.streams.models.Supplier;
 import com.qaprosoft.carina.demo.streams.models.SupplierDiscount;
 import com.qaprosoft.carina.demo.streams.models.YearSchoolStat;
@@ -121,6 +125,26 @@ public class StreamTasksSolver {
                 .sorted((a, b) -> a.getNumberOfSchools() == b.getNumberOfSchools() ? Integer.compare
                         (a.getYearOfEntering(), b.getYearOfEntering()) : Integer.compare(a.getNumberOfSchools(), b.getNumberOfSchools()))
                 .collect(Collectors.toList());
+    }
+
+    public static List<CountryStat> getCountryStat(List<Good> goods, List<StorePrice> storePrices) {
+        return goods.stream().map(Good::getCountryOfOrigin).distinct().map(
+                        country -> new CountryStat(country, (int)
+                                storePrices.stream().filter(storePrice ->
+                                        goods.stream().anyMatch(innerGood ->
+                                                innerGood.getProductSKU() == storePrice.getProductSKU()
+                                                        && innerGood.getCountryOfOrigin().equals(country))).count(),
+                                storePrices.stream().anyMatch(storePrice ->
+                                        goods.stream().anyMatch(innerGood -> innerGood.getProductSKU() == storePrice
+                                                .getProductSKU()
+                                                && innerGood.getCountryOfOrigin().equals(country))) ?
+                                        storePrices.stream().filter(storePrice ->
+                                                        goods.stream().anyMatch(innerGood -> innerGood.getProductSKU() == storePrice
+                                                                .getProductSKU()
+                                                                && innerGood.getCountryOfOrigin().equals(country))).
+                                                min(Comparator.comparing(StorePrice::getPrice)).get().getPrice()
+                                        : new BigDecimal(0)))
+                .sorted(Comparator.comparing(CountryStat::getCountryName)).collect(Collectors.toList());
     }
 
     public static List<MaxDiscountOwner> getMaxDiscOwners(List<Supplier> supplierList, List<SupplierDiscount> supplierDiscounts) {
