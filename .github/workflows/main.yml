@@ -20,7 +20,5 @@ jobs:
         uses: Xotabu4/selenoid-github-action@v2
       - run: chrome --version
       - name: Build with Maven
-        run: |
-          cd FrameWorkSelenium
-          mvn clean -Dsuite=src/test/resources/suites/testng2 tes
+        run: mvn clean -Dsuite=actionability test
   
