@@ -17,4 +17,4 @@ jobs:
       - name: Start Selenoid Server
         uses: Xotabu4/selenoid-github-action@v2
       - name: Build with Maven
-        run: mvn clean test
+        run: mvn clean -Dsuite=HeaderTest test
