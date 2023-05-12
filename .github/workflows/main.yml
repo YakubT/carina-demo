@@ -14,6 +14,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1.2.0
       - name: Start Selenoid Server
         uses: Xotabu4/selenoid-github-action@v2
       - name: Build with Maven
