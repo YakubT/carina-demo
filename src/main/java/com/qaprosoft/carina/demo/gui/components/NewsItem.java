@@ -41,6 +41,10 @@ public class NewsItem extends AbstractUIObject {
         return new ArticlePage(driver);
     }
 
+    public boolean isPresent() {
+        return isUIObjectPresent(1000);
+    }
+
     public void scrollToArticle() {
         titleLink.scrollTo();
     }

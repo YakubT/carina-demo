@@ -80,8 +80,19 @@
 			<version>42.3.3</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.zebrunner/carina-cucumber -->
+		<dependency>
+			<groupId>com.zebrunner</groupId>
+			<artifactId>carina-cucumber</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
-
+		<!-- https://mvnrepository.com/artifact/com.zebrunner/carina-proxy -->
+		<dependency>
+			<groupId>com.zebrunner</groupId>
+			<artifactId>carina-proxy</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 
 	</dependencies>
 
