@@ -10,14 +10,15 @@ import com.qaprosoft.carina.demo.gui.enums.HeaderButtonLink;
 import com.qaprosoft.carina.demo.gui.utils.HeaderPageFactory;
 import com.qaprosoft.carina.demo.gui.pages.HomePage;
 import com.qaprosoft.carina.demo.gui.pages.NewsPage;
+import org.testng.Assert;
 
 public class GSMArenaNewsSteps implements IDriverPool {
 
     @Given("I am on main page")
-    public boolean iAmOnMainPage() {
+    public void iAmOnMainPage() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        return homePage.isPageOpened();
+        Assert.assertTrue(homePage.isPageOpened());
     }
 
     @When("I open {string} page")
@@ -27,14 +28,14 @@ public class GSMArenaNewsSteps implements IDriverPool {
     }
 
     @Then("page {string} should be open")
-    public boolean isPageOpened(String page) {
-        return new HeaderPageFactory().getPageByHeaderButton(HeaderButtonLink.
-                valueOf(page.toUpperCase()), getDriver()).isPageOpened();
+    public void isPageOpened(String page) {
+        Assert.assertTrue(new HeaderPageFactory().getPageByHeaderButton(HeaderButtonLink.
+                valueOf(page.toUpperCase()), getDriver()).isPageOpened());
     }
 
     @Then("page 'News' should contains an item")
-    public boolean isNewsContainsAllItems() {
-        return new NewsPage(getDriver()).getArticleByPos(1).isPresent();
+    public void isNewsContainsAllItems() {
+        Assert.assertTrue(new NewsPage(getDriver()).getArticleByPos(1).isPresent());
     }
 
 }
