@@ -25,6 +25,10 @@ public class SearchPage extends AbstractPage {
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
     }
 
+    public List<GoodItem> getGoods() {
+        return goods;
+    }
+
     public boolean isContainsProductsWithName(List<String> goodsTitles) {
         return goodsTitles.stream().allMatch(title -> goods.stream()
                 .anyMatch(goodItem -> goodItem.verifyText(title)));
