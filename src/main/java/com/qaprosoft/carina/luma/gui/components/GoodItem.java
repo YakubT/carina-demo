@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.luma.gui.components;
 
+import com.qaprosoft.carina.luma.gui.pages.GoodPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -31,8 +32,9 @@ public class GoodItem extends AbstractUIObject {
         return title.getText().equals(text);
     }
 
-    public void addToCart() {
+    public GoodPage addToCart() {
         hover();
         addToCartButton.click();
+        return new GoodPage(getDriver());
     }
 }
