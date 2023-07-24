@@ -16,7 +16,7 @@ public class SignUpPage extends AbstractPage {
     @FindBy(xpath = "//form[@id='frmOpin']//input[@id='upass']")
     private ExtendedWebElement passwordTextBox;
 
-    @FindBy(xpath = "//label[@for = \"%s\"]")
+    @FindBy(xpath = "//label[@for = '%s']")
     private ExtendedWebElement swiper;
 
     @FindBy(id = "ucsubmit-f")
