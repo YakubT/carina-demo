@@ -10,16 +10,16 @@ public class SignUpPage extends AbstractPage {
     @FindBy(id = "uname")
     private ExtendedWebElement nicknameTextBox;
 
-    @FindBy(xpath = "//*[@id = 'frmOpin']/fieldset/input[@id = \"email\"]")
+    @FindBy(xpath = "//form[@id='frmOpin']//input[@id='email']")
     private ExtendedWebElement emailTextBox;
 
-    @FindBy(xpath = "//*[@id = 'frmOpin']/input[@id = \"upass\"]")
+    @FindBy(xpath = "//form[@id='frmOpin']//input[@id='upass']")
     private ExtendedWebElement passwordTextBox;
 
     @FindBy(xpath = "//label[@for = \"%s\"]")
     private ExtendedWebElement swiper;
 
-    @FindBy(xpath = "//div[@id= \"ucsubmit-f\"]/input[@id= \"nick-submit\"]")
+    @FindBy(id = "ucsubmit-f")
     private ExtendedWebElement submitButton;
 
     @FindBy( xpath = "//h3[text() = 'Your account was created. ']")
