@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Article" verbose="1" parallel="tests">
+
+  <test name="Login ability">
+      <classes>
+          <class name="com.qaprosoft.carina.demo.mytests.newweb.ArticleTest">
+          </class>
+      </classes>
+  </test>
+
+</suite>
