@@ -16,6 +16,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - name: Add crypto key to config file
+      run: echo "crypto_key_value=$crypto_key">> ./src/main/resources/_config.properties
+      env: 
+        crypto_key: ${{ secrets.CRYPTO_KEY }}
     - name: Pull selenoid chrome image
       run: docker pull selenoid/chrome:latest
     - name: Create network
@@ -23,4 +27,4 @@ jobs:
     - name: Run docker-compose
       run: docker-compose up&
     - name: Run tests
-      run: mvn clean -Dsuite=footer test
+      run: mvn clean -Dsuite=article test
