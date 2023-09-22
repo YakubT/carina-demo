@@ -21,12 +21,3 @@ services:
     command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs", "-container-network", "selenoid" ]
     ports:
       - "4444:4444"
-  test:
-    image: "test"
-    container_name: test
-    depends_on:
-      - selenoid
-    links:
-      - selenoid
-    networks:
-      selenoid: null
