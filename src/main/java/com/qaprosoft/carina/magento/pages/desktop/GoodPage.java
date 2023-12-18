@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.pages.megento;
+package com.qaprosoft.carina.magento.pages.desktop;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;

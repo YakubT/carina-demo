@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.pages.megento;
+package com.qaprosoft.carina.magento.pages.desktop;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import org.openqa.selenium.WebDriver;

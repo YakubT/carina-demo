@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.demo.gui.pages.megento.CartPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.CatalogSearchPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.SignInPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.SignUpPage;
+import com.qaprosoft.carina.magento.pages.desktop.CartPage;
+import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
+import com.qaprosoft.carina.magento.pages.desktop.SignInPage;
+import com.qaprosoft.carina.magento.pages.desktop.SignUpPage;
 public class HeaderMenu extends AbstractUIObject {
 
     @FindBy(xpath = "//a[contains(text(),'Sign In')]")

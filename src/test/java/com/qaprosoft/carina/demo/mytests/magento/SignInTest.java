@@ -4,9 +4,9 @@ import com.qaprosoft.carina.demo.gui.services.magento.UserService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.qaprosoft.carina.demo.gui.pages.megento.HomePage;
+import com.qaprosoft.carina.magento.pages.desktop.HomePage;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.gui.pages.megento.SignInPage;
+import com.qaprosoft.carina.magento.pages.desktop.SignInPage;
 
 public class SignInTest implements IAbstractTest {
 

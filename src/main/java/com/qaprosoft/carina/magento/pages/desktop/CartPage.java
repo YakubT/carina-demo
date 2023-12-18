@@ -1,10 +1,12 @@
-package com.qaprosoft.carina.demo.gui.pages.megento;
+package com.qaprosoft.carina.magento.pages.desktop;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.utils.factory.DeviceType;
 
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CartPage.class)
 public class CartPage extends AbstractMagentoPage {
 
     @FindBy(xpath = "(//dl[contains(@class,'item-options')])//dd[1]")

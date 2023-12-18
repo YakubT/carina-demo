@@ -1,9 +1,9 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
-import com.qaprosoft.carina.demo.gui.pages.megento.CartPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.CatalogSearchPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.GoodPage;
-import com.qaprosoft.carina.demo.gui.pages.megento.HomePage;
+import com.qaprosoft.carina.magento.pages.desktop.CartPage;
+import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
+import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
+import com.qaprosoft.carina.magento.pages.desktop.HomePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;

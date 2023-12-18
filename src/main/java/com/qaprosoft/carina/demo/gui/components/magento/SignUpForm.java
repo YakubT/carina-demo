@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.demo.gui.models.magento.ExtendedUser;
-import com.qaprosoft.carina.demo.gui.pages.megento.AccountPage;
+import com.qaprosoft.carina.magento.pages.desktop.AccountPage;
 
 public class SignUpForm extends AbstractUIObject {
 
