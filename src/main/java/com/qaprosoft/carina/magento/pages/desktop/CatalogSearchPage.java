@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.gui.components.magento.SearchItem;
+import com.qaprosoft.carina.magento.components.desktop.SearchItem;
+import com.zebrunner.carina.utils.factory.DeviceType;
+import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CatalogSearchPageBase.class)
 public class CatalogSearchPage extends AbstractMagentoPage {
     @FindBy(xpath = "//div[contains(@class,'products wrapper')]//li[contains(@class,'product-item')]")
     private List<SearchItem> goods;

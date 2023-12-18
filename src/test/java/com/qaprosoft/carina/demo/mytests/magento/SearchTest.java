@@ -1,6 +1,6 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
-import com.qaprosoft.carina.demo.gui.components.magento.SearchItem;
+import com.qaprosoft.carina.magento.components.desktop.SearchItem;
 import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
 import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
 import com.qaprosoft.carina.magento.pages.desktop.HomePage;

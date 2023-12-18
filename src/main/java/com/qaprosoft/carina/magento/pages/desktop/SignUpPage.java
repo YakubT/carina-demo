@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.demo.gui.components.magento.SignUpForm;
+import com.qaprosoft.carina.magento.components.desktop.SignUpForm;
 
 public class SignUpPage extends AbstractMagentoPage {
 

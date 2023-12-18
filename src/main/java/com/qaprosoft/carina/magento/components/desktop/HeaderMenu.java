@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.components.magento;
+package com.qaprosoft.carina.magento.components.desktop;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.SearchContext;
@@ -6,12 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.qaprosoft.carina.magento.pages.desktop.CartPage;
 import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
 import com.qaprosoft.carina.magento.pages.desktop.SignInPage;
 import com.qaprosoft.carina.magento.pages.desktop.SignUpPage;
-public class HeaderMenu extends AbstractUIObject {
+import com.qaprosoft.carina.magento.components.common.HeaderMenuBase;
+
+public class HeaderMenu extends HeaderMenuBase {
 
     @FindBy(xpath = "//a[contains(text(),'Sign In')]")
     private ExtendedWebElement signInButton;

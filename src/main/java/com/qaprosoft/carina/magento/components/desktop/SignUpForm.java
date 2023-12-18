@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.gui.components.magento;
+package com.qaprosoft.carina.magento.components.desktop;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;

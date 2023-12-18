@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.gui.components.magento.SignUpForm;
+import com.qaprosoft.carina.magento.components.desktop.SignUpForm;
 import com.qaprosoft.carina.demo.gui.models.magento.ExtendedUser;
 import com.qaprosoft.carina.magento.pages.desktop.AccountPage;
 import com.qaprosoft.carina.magento.pages.desktop.HomePage;
