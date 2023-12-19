@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.magento.components.common;
 
+import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
@@ -21,7 +22,7 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
 
     public abstract void signOut();
 
-    public abstract CatalogSearchPage searchGood(String name);
+    public abstract CatalogSearchPageBase searchGood(String name);
 
     public abstract void goToCheckOut();
 

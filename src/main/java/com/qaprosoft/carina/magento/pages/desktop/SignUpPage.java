@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
 import com.qaprosoft.carina.magento.components.desktop.SignUpForm;
+import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 
-public class SignUpPage extends AbstractMagentoPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = SignUpPageBase.class)
+public class SignUpPage extends SignUpPageBase {
 
     @FindBy(xpath = "//div[contains(@class,'columns')]")
     private SignUpForm signUpForm;

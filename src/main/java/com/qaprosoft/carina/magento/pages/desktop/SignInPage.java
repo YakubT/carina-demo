@@ -5,8 +5,11 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.demo.gui.models.magento.User;
+import com.qaprosoft.carina.magento.pages.common.SignInPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 
-public class SignInPage extends AbstractMagentoPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = SignInPageBase.class)
+public class SignInPage extends SignInPageBase {
 
     @FindBy(xpath = "//input[contains(@name,'login[username]')]")
     private ExtendedWebElement emailField;

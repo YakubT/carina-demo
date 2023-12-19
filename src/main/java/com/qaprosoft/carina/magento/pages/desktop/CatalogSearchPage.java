@@ -12,7 +12,7 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CatalogSearchPageBase.class)
-public class CatalogSearchPage extends AbstractMagentoPage {
+public class CatalogSearchPage extends CatalogSearchPageBase {
     @FindBy(xpath = "//div[contains(@class,'products wrapper')]//li[contains(@class,'product-item')]")
     private List<SearchItem> goods;
 

@@ -10,7 +10,7 @@ public abstract class CatalogSearchPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract GoodPageBase clickByIndex();
+    public abstract GoodPageBase clickByIndex(int index);
 
     public abstract boolean navigateToNextPage();
 }

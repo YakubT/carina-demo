@@ -1,13 +1,17 @@
 package com.qaprosoft.carina.magento.pages.desktop;
 
+
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
 
-public class GoodPage extends AbstractMagentoPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = GoodPageBase.class)
+public class GoodPage extends GoodPageBase {
 
     @FindBy(xpath = "//div[contains(@id,'color')]")
     private List<ExtendedWebElement> colors;

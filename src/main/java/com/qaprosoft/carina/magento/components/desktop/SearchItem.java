@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.magento.components.common.SearchItemBase;
 import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
 
-public class SearchItem extends AbstractUIObject {
+public class SearchItem extends SearchItemBase {
 
     @FindBy(xpath = ".//span[contains(@id,'price')]")
     ExtendedWebElement price;
