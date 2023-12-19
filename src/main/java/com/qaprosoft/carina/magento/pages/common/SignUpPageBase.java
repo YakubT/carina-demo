@@ -13,4 +13,5 @@ public abstract class SignUpPageBase extends AbstractPage {
 
     public abstract SignUpFormBase getSignUpForm();
 
+    public abstract boolean isErrorMessageDisplayed();
 }

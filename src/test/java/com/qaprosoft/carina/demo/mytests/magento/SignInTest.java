@@ -1,6 +1,7 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
 import com.qaprosoft.carina.demo.gui.services.magento.UserService;
+import com.qaprosoft.carina.magento.pages.common.HomePageBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,7 @@ public class SignInTest implements IAbstractTest {
 
     @Test(testName = "regression#1")
     public void testExistingUser() {
-        HomePage homePage = new HomePage(getDriver());
+        HomePageBase homePage = initPage(getDriver(),HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened());
         SignInPage signInPage = homePage.getHeaderMenu().clickSignInButton();

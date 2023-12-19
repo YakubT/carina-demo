@@ -1,5 +1,9 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
+import com.qaprosoft.carina.magento.pages.common.CartPageBase;
+import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
+import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
+import com.qaprosoft.carina.magento.pages.common.HomePageBase;
 import com.qaprosoft.carina.magento.pages.desktop.CartPage;
 import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
 import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
@@ -19,19 +23,19 @@ public class ShoppingCartTest implements IAbstractTest {
 
     @Test(testName = "regression#2")
     public void testShoppingCartFunctionality() {
-        HomePage homePage = new HomePage(getDriver());
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
-        CatalogSearchPage catalogSearchPage = homePage.getHeaderMenu().searchGood(defaultSearch);
-        GoodPage goodPage = catalogSearchPage.clickByIndex(0);
+        CatalogSearchPageBase catalogSearchPage = homePage.getHeaderMenu().searchGood(defaultSearch);
+        GoodPageBase goodPage = catalogSearchPage.clickByIndex(0);
         goodPage.chooseSize(0);
         String size = goodPage.getSizeByIndex(0);
         goodPage.chooseColor(0);
         String colorOnGoodPage = goodPage.getCurrentColor();
         goodPage.submit();
-        CartPage cartPage = homePage.getHeaderMenu().goToCartPage();
+        CartPageBase cartPage = homePage.getHeaderMenu().goToCartPage();
         LOGGER.info(colorOnGoodPage);
         LOGGER.info(cartPage.getColor());
-        Assert.assertTrue(cartPage.getColor().equals(colorOnGoodPage),"Colors are not equal");
-        Assert.assertTrue(cartPage.getSize().equals(size),"Size are not equal");
+        Assert.assertEquals(colorOnGoodPage, cartPage.getColor(), "Colors are not equal");
+        Assert.assertEquals(size, cartPage.getSize(), "Size are not equal");
     }
 }

@@ -11,13 +11,16 @@ import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
 public class SearchItem extends SearchItemBase {
 
     @FindBy(xpath = ".//span[contains(@id,'price')]")
-    ExtendedWebElement price;
+    private ExtendedWebElement price;
+
+    @FindBy(xpath = ".//img")
+    private ExtendedWebElement anchor;
 
     @FindBy(xpath = ".//button")
-    ExtendedWebElement addToCartButton;
+    private ExtendedWebElement addToCartButton;
 
     public SearchItem(WebDriver driver, SearchContext searchContext) {
-        super(driver,searchContext);
+        super(driver, searchContext);
     }
 
     public String getPrice() {
@@ -29,7 +32,7 @@ public class SearchItem extends SearchItemBase {
     }
 
     public GoodPage click() {
-        rootElement.click();
+        anchor.click();
         return new GoodPage(getDriver());
     }
 }
