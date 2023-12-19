@@ -1,19 +1,15 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
-import com.qaprosoft.carina.magento.pages.common.CartPageBase;
-import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
-import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
-import com.qaprosoft.carina.magento.pages.common.HomePageBase;
-import com.qaprosoft.carina.magento.pages.desktop.CartPage;
-import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
-import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
-import com.qaprosoft.carina.magento.pages.desktop.HomePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.magento.pages.common.CartPageBase;
+import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
+import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
+import com.qaprosoft.carina.magento.pages.common.HomePageBase;
 
 public class ShoppingCartTest implements IAbstractTest {
 
