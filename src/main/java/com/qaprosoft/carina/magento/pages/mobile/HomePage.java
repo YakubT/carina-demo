@@ -1,15 +1,19 @@
 package com.qaprosoft.carina.magento.pages.mobile;
 
-import com.qaprosoft.carina.demo.utils.MobileContextUtils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
-import com.qaprosoft.carina.magento.components.desktop.HeaderMenu;
+import com.qaprosoft.carina.magento.components.android.HeaderMenu;
 import com.qaprosoft.carina.magento.pages.common.HomePageBase;
+import com.qaprosoft.carina.demo.utils.MobileContextUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
+
+    @FindBy(xpath = "//div[contains(@class,'header content')]")
+    private HeaderMenu headerMenu;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -21,6 +25,6 @@ public class HomePage extends HomePageBase {
 
     @Override
     public HeaderMenu getHeaderMenu() {
-        return null;
+        return headerMenu;
     }
 }

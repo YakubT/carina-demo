@@ -1,14 +1,17 @@
 package com.qaprosoft.carina.magento.components.android;
 
+import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.magento.components.common.HeaderMenuBase;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 import com.qaprosoft.carina.magento.pages.desktop.CartPage;
-import com.qaprosoft.carina.magento.pages.desktop.SignInPage;
-import com.qaprosoft.carina.magento.pages.desktop.SignUpPage;
+import com.qaprosoft.carina.magento.pages.mobile.SignInPage;
+import com.qaprosoft.carina.magento.pages.mobile.SignUpPage;
 
 public class HeaderMenu extends HeaderMenuBase {
 
@@ -21,35 +24,51 @@ public class HeaderMenu extends HeaderMenuBase {
     @FindBy(id = "search")
     private ExtendedWebElement searchInputField;
 
-    @Override
-    public SignInPage clickSignInButton() {
-        return null;
+    @FindBy(xpath = "//span[contains(@class,'nav')]")
+    private ExtendedWebElement hamburgerMenu;
+
+    @FindBy(xpath = "//a[contains(text(),'Account') and contains(@class,'nav-sections-item-switch')]")
+    private ExtendedWebElement accountBtn;
+
+    @FindBy(xpath = "//div[contains(@class,'section-items nav-sections-items')]//a[contains(text(),'Sign In')]")
+    private ExtendedWebElement signInBtn;
+
+    public HeaderMenu(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
     }
 
     @Override
-    public SignUpPage clickSignUpPage() {
-        return null;
+    public SignInPage clickSignInButton() {
+        hamburgerMenu.click();
+        accountBtn.click();
+        signInBtn.click();
+        return new SignInPage(getDriver());
+    }
+
+    @Override
+    public SignUpPageBase clickSignUpPage() {
+        return new SignUpPage(getDriver());
     }
 
     @Override
     public void signOut() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public CatalogSearchPageBase searchGood(String name) {
         magnifyingGlassIcon.click();
         searchInputField.type(name+ Keys.RETURN);
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void goToCheckOut() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public CartPage goToCartPage() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }

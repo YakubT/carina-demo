@@ -1,14 +1,13 @@
 package com.qaprosoft.carina.magento.components.common;
 
-import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.magento.pages.desktop.SignInPage;
+import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
+import com.qaprosoft.carina.magento.pages.common.SignInPageBase;
+import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
 import com.qaprosoft.carina.magento.pages.desktop.CartPage;
-import com.qaprosoft.carina.magento.pages.desktop.CatalogSearchPage;
-import com.qaprosoft.carina.magento.pages.desktop.SignUpPage;
 
 public abstract class HeaderMenuBase extends AbstractUIObject {
 
@@ -16,9 +15,9 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public abstract SignInPage clickSignInButton();
+    public abstract SignInPageBase clickSignInButton();
 
-    public abstract SignUpPage clickSignUpPage();
+    public abstract SignUpPageBase clickSignUpPage();
 
     public abstract void signOut();
 

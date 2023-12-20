@@ -3,7 +3,7 @@ package com.qaprosoft.carina.magento.pages.common;
 import org.openqa.selenium.WebDriver;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.magento.components.desktop.HeaderMenu;
+import com.qaprosoft.carina.magento.components.common.HeaderMenuBase;
 
 public abstract class HomePageBase extends AbstractPage {
 
@@ -11,5 +11,5 @@ public abstract class HomePageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract HeaderMenu getHeaderMenu();
+    public abstract HeaderMenuBase getHeaderMenu();
 }
