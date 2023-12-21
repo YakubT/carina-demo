@@ -7,7 +7,10 @@ import com.qaprosoft.carina.magento.components.common.SignUpFormBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SignUpPageBase.class)
-public class SignUpPage extends SignUpPageBase{
+public class SignUpPage extends SignUpPageBase {
+
+    private final com.qaprosoft.carina.magento.pages.desktop.SignUpPage signUpPage =
+            new com.qaprosoft.carina.magento.pages.desktop.SignUpPage(getDriver());
 
     public SignUpPage(WebDriver driver) {
         super(driver);
@@ -15,12 +18,12 @@ public class SignUpPage extends SignUpPageBase{
 
     @Override
     public SignUpFormBase getSignUpForm() {
-        throw new UnsupportedOperationException();
+       return signUpPage.getSignUpForm();
     }
 
     @Override
     public boolean isErrorMessageDisplayed() {
-        throw new UnsupportedOperationException();
+        return signUpPage.isErrorMessageDisplayed();
     }
 
 }

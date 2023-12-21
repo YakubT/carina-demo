@@ -34,6 +34,9 @@ public class HeaderMenu extends HeaderMenuBase {
     @FindBy(xpath = "//div[contains(@class,'section-items nav-sections-items')]//a[contains(text(),'Sign In')]")
     private ExtendedWebElement signInBtn;
 
+    @FindBy(xpath = "//div[contains(@class,'section-items nav-sections-items')]//a[contains(text(),'Create')]")
+    private ExtendedWebElement signUpBtn;
+
     @FindBy(xpath = "//div[@id='store.links']//div//a[contains(text(),'Sign Out')]")
     private ExtendedWebElement signOutBtn;
 
@@ -60,6 +63,9 @@ public class HeaderMenu extends HeaderMenuBase {
 
     @Override
     public SignUpPageBase clickSignUpPage() {
+        hamburgerMenu.click();
+        accountBtn.click();
+        signUpBtn.click();
         return new SignUpPage(getDriver());
     }
 

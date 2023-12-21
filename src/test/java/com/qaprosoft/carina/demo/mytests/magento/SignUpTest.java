@@ -8,10 +8,8 @@ import org.testng.annotations.Test;
 import java.util.Map;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.magento.components.desktop.SignUpForm;
 import com.qaprosoft.carina.demo.gui.models.magento.ExtendedUser;
 import com.qaprosoft.carina.magento.pages.desktop.HomePage;
-import com.qaprosoft.carina.magento.pages.desktop.SignUpPage;
 import com.qaprosoft.carina.demo.gui.services.magento.ExtendedUserService;
 import com.qaprosoft.carina.core.foundation.dataprovider.annotations.CsvDataSourceParameters;
 import com.qaprosoft.carina.magento.pages.common.AccountPageBase;
