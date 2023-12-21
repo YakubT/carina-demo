@@ -16,5 +16,5 @@ public abstract class SignInPageBase extends AbstractPage {
 
     public abstract void signInButtonClick();
 
-    public abstract void signIn(User user);
+    public abstract HomePageBase signIn(User user);
 }

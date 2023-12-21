@@ -41,10 +41,11 @@ public class SignInPage extends SignInPageBase {
     }
 
     @Override
-    public void signIn(User user) {
+    public HomePage signIn(User user) {
         fillEmailField(user.getEmail());
         fillPasswordField(user.getPassword());
         signInButtonClick();
+        return new HomePage(getDriver());
     }
 
 }

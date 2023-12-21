@@ -26,4 +26,5 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
     public abstract void goToCheckOut();
 
     public abstract CartPage goToCartPage();
+
 }

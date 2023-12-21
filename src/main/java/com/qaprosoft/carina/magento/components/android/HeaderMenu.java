@@ -33,6 +33,9 @@ public class HeaderMenu extends HeaderMenuBase {
     @FindBy(xpath = "//div[contains(@class,'section-items nav-sections-items')]//a[contains(text(),'Sign In')]")
     private ExtendedWebElement signInBtn;
 
+    @FindBy(xpath = "//div[@id='store.links']//div//a[contains(text(),'Sign Out')]")
+    private ExtendedWebElement signOutBtn;
+
     public HeaderMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
@@ -52,7 +55,9 @@ public class HeaderMenu extends HeaderMenuBase {
 
     @Override
     public void signOut() {
-        throw new UnsupportedOperationException();
+        hamburgerMenu.click();
+        accountBtn.click();
+        signOutBtn.click();
     }
 
     @Override

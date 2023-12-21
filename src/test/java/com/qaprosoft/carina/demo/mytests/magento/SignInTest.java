@@ -1,7 +1,5 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
-import com.qaprosoft.carina.magento.pages.common.AccountPageBase;
-import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,11 +17,8 @@ public class SignInTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened());
         SignInPageBase signInPage = homePage.getHeaderMenu().clickSignInButton();
         signInPage.signIn(UserService.getDefaultUser());
-        if (R.CONFIG.getProperties().get("capabilities.platformName").equals("ANDROID")) {
-            AccountPageBase accountPageBase = initPage(getDriver(), AccountPageBase.class);
-            Assert.assertTrue(accountPageBase.isPageOpened());
-        } else {
-            Assert.assertTrue(homePage.isPageOpened());
-        }
+        Assert.assertTrue(homePage.isPageOpened());
+        //post conditions
+        homePage.getHeaderMenu().signOut();
     }
 }
