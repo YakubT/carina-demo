@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.magento.components.desktop;
 
+import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class SearchItem extends SearchItemBase {
     private ExtendedWebElement price;
 
     @FindBy(xpath = ".//img")
-    private ExtendedWebElement anchor;
+    protected ExtendedWebElement anchor;
 
     @FindBy(xpath = ".//button")
     private ExtendedWebElement addToCartButton;
@@ -31,7 +32,7 @@ public class SearchItem extends SearchItemBase {
         addToCartButton.click();
     }
 
-    public GoodPage click() {
+    public GoodPageBase click() {
         anchor.click();
         return new GoodPage(getDriver());
     }
