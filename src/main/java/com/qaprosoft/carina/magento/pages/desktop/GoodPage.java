@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.magento.pages.desktop;
 
-
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
