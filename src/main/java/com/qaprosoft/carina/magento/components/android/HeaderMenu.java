@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.magento.components.android;
 
-import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.magento.components.common.HeaderMenuBase;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
-import com.qaprosoft.carina.magento.pages.desktop.CartPage;
+import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
+import com.qaprosoft.carina.magento.pages.mobile.CartPage;
+import com.qaprosoft.carina.magento.pages.mobile.CatalogSearchPage;
 import com.qaprosoft.carina.magento.pages.mobile.SignInPage;
 import com.qaprosoft.carina.magento.pages.mobile.SignUpPage;
 
@@ -35,6 +36,15 @@ public class HeaderMenu extends HeaderMenuBase {
 
     @FindBy(xpath = "//div[@id='store.links']//div//a[contains(text(),'Sign Out')]")
     private ExtendedWebElement signOutBtn;
+
+    @FindBy(xpath = "//a[contains(@class,'action showcart')]//span[contains(@class,'counter qty')]")
+    private ExtendedWebElement counter;
+
+    @FindBy(xpath = "//a[contains(@class,'viewcart')]")
+    private ExtendedWebElement viewEditCartBtn;
+
+    @FindBy(id = "top-cart-btn-checkout")
+    private ExtendedWebElement goToCheckoutBtn;
 
     public HeaderMenu(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
@@ -64,16 +74,22 @@ public class HeaderMenu extends HeaderMenuBase {
     public CatalogSearchPageBase searchGood(String name) {
         magnifyingGlassIcon.click();
         searchInputField.type(name+ Keys.RETURN);
-        throw new UnsupportedOperationException();
+        return new CatalogSearchPage(getDriver());
     }
 
     @Override
     public void goToCheckOut() {
-        throw new UnsupportedOperationException();
+        cartIcon.click();
+        goToCheckoutBtn.click();
     }
 
     @Override
     public CartPage goToCartPage() {
-        throw new UnsupportedOperationException();
+        if (counter.isElementPresent()) {
+            cartIcon.click();
+            viewEditCartBtn.click();
+            return new CartPage(getDriver());
+        }
+        return null;
     }
 }

@@ -72,9 +72,11 @@ public class HeaderMenu extends HeaderMenuBase {
     }
 
     public CartPage goToCartPage() {
-        counter.isElementPresent();
-        cartIcon.click();
-        viewEditCartBtn.click();
-        return new CartPage(getDriver());
+        if (counter.isElementPresent()) {
+            cartIcon.click();
+            viewEditCartBtn.click();
+            return new CartPage(getDriver());
+        }
+        return null;
     }
 }

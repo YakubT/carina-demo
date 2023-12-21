@@ -7,7 +7,7 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 import com.qaprosoft.carina.magento.pages.common.SignInPageBase;
 import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
-import com.qaprosoft.carina.magento.pages.desktop.CartPage;
+import com.qaprosoft.carina.magento.pages.common.CartPageBase;
 
 public abstract class HeaderMenuBase extends AbstractUIObject {
 
@@ -25,6 +25,6 @@ public abstract class HeaderMenuBase extends AbstractUIObject {
 
     public abstract void goToCheckOut();
 
-    public abstract CartPage goToCartPage();
+    public abstract CartPageBase goToCartPage();
 
 }
