@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.magento.pages.mobile;
+package com.qaprosoft.carina.magento.pages.ios;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;

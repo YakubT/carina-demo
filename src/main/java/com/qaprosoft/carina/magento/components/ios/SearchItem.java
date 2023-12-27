@@ -1,10 +1,10 @@
-package com.qaprosoft.carina.magento.components.android;
+package com.qaprosoft.carina.magento.components.ios;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
+import com.qaprosoft.carina.magento.pages.ios.GoodPage;
 import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
-import com.qaprosoft.carina.magento.pages.android.GoodPage;
 
 public class SearchItem extends com.qaprosoft.carina.magento.components.desktop.SearchItem {
 

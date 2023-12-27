@@ -28,6 +28,7 @@ public class ShoppingCartTest implements IAbstractTest {
         goodPage.chooseColor(0);
         String colorOnGoodPage = goodPage.getCurrentColor();
         goodPage.submit();
+        pause(5);
         CartPageBase cartPage = homePage.getHeaderMenu().goToCartPage();
         LOGGER.info(colorOnGoodPage);
         LOGGER.info(cartPage.getColor());

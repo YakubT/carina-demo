@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.magento.pages.mobile;
+package com.qaprosoft.carina.magento.pages.android;
 
 import com.qaprosoft.carina.magento.pages.common.GoodPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;

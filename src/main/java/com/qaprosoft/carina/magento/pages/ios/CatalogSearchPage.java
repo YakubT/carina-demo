@@ -1,16 +1,14 @@
-package com.qaprosoft.carina.magento.pages.mobile;
+package com.qaprosoft.carina.magento.pages.ios;
 
 import java.util.List;
 
-import com.qaprosoft.carina.magento.pages.desktop.GoodPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.magento.components.desktop.SearchItem;
+import com.qaprosoft.carina.magento.components.ios.SearchItem;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
-
 public class CatalogSearchPage extends CatalogSearchPageBase {
 
     @FindBy(xpath = "//div[contains(@class,'products wrapper')]//li[contains(@class,'product-item')]")
@@ -26,6 +24,7 @@ public class CatalogSearchPage extends CatalogSearchPageBase {
     }
 
     public GoodPage clickByIndex(int index) {
+        pause(5);
         goods.get(index).click();
         return new GoodPage(getDriver());
     }

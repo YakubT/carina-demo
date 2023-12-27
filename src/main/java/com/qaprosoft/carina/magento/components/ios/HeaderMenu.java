@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.magento.components.android;
+package com.qaprosoft.carina.magento.components.ios;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.SearchContext;
@@ -7,12 +7,12 @@ import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.magento.components.common.HeaderMenuBase;
+import com.qaprosoft.carina.magento.pages.ios.CartPage;
+import com.qaprosoft.carina.magento.pages.ios.CatalogSearchPage;
+import com.qaprosoft.carina.magento.pages.ios.SignInPage;
+import com.qaprosoft.carina.magento.pages.ios.SignUpPage;
 import com.qaprosoft.carina.magento.pages.common.CatalogSearchPageBase;
 import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
-import com.qaprosoft.carina.magento.pages.android.CartPage;
-import com.qaprosoft.carina.magento.pages.android.CatalogSearchPage;
-import com.qaprosoft.carina.magento.pages.android.SignInPage;
-import com.qaprosoft.carina.magento.pages.android.SignUpPage;
 
 public class HeaderMenu extends HeaderMenuBase {
 

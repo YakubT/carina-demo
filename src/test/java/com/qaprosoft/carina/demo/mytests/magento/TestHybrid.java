@@ -1,7 +1,6 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
 import com.qaprosoft.carina.demo.mytests.mobile.NativeChrome;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;

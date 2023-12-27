@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.demo.mytests.magento;
 
-import com.qaprosoft.carina.magento.components.common.SignUpFormBase;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -15,6 +14,7 @@ import com.qaprosoft.carina.core.foundation.dataprovider.annotations.CsvDataSour
 import com.qaprosoft.carina.magento.pages.common.AccountPageBase;
 import com.qaprosoft.carina.magento.pages.common.HomePageBase;
 import com.qaprosoft.carina.magento.pages.common.SignUpPageBase;
+import com.qaprosoft.carina.magento.components.common.SignUpFormBase;
 
 public class SignUpTest implements IAbstractTest {
 
